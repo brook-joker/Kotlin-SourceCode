@@ -21,11 +21,15 @@
 package kotlin.collections
 
 /**
+ * 提供了一个简版只读列表接口
  * Provides a skeletal implementation of the read-only [List] interface.
  *
+ * 这个的类的意图是为了帮助实现一个只读列表,因此不支持并发修改追踪
  * This class is intended to help implementing read-only lists so it doesn't support concurrent modification tracking.
  *
+ *
  * @param E the type of elements contained in the list. The list is covariant on its element type.
+ * E表示这个集合的元素的类型，改列表对其元素是协变的
  */
 @SinceKotlin("1.1")
 public abstract class AbstractList<out E> protected constructor() : AbstractCollection<E>(), List<E> {

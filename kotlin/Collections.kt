@@ -21,6 +21,7 @@ import kotlin.internal.PlatformDependent
 /**
  * Classes that inherit from this interface can be represented as a sequence of elements that can
  * be iterated over.
+ * 从此接口继承的类可以表示为可迭代的一系列元素。这个不支持在遍历期间移除元素
  * @param T the type of element being iterated over. The iterator is covariant on its element type.
  */
 public interface Iterable<out T> {
@@ -33,6 +34,7 @@ public interface Iterable<out T> {
 /**
  * Classes that inherit from this interface can be represented as a sequence of elements that can
  * be iterated over and that supports removing elements during iteration.
+ * 从此接口继承的类可以表示为可迭代的一系列元素，并支持在迭代过程中移除元素。
  * @param T the type of element being iterated over. The mutable iterator is invariant on its element type.
  */
 public interface MutableIterable<out T> : Iterable<T> {
@@ -45,6 +47,7 @@ public interface MutableIterable<out T> : Iterable<T> {
 /**
  * A generic collection of elements. Methods in this interface support only read-only access to the collection;
  * read/write access is supported through the [MutableCollection] interface.
+ * 元素的通用集合。 此接口中的方法仅支持对集合的只读访问权限; 通过[MutableCollection]接口支持读/写访问。
  * @param E the type of elements contained in the collection. The collection is covariant on its element type.
  */
 public interface Collection<out E> : Iterable<E> {

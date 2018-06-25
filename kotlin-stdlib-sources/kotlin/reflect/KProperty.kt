@@ -30,6 +30,7 @@ public interface KProperty<out R> : KCallable<R> {
      * `true` if this property is `lateinit`.
      * See the [Kotlin language documentation](https://kotlinlang.org/docs/reference/properties.html#late-initialized-properties)
      * for more information.
+     * 属性是否已经被初始化
      */
     @SinceKotlin("1.1")
     public val isLateinit: Boolean
@@ -38,6 +39,7 @@ public interface KProperty<out R> : KCallable<R> {
      * `true` if this property is `const`.
      * See the [Kotlin language documentation](https://kotlinlang.org/docs/reference/properties.html#compile-time-constants)
      * for more information.
+     * 属性是否是常量
      */
     @SinceKotlin("1.1")
     public val isConst: Boolean
@@ -47,6 +49,7 @@ public interface KProperty<out R> : KCallable<R> {
 
     /**
      * Represents a property accessor, which is a `get` or `set` method declared alongside the property.
+     * 属性访问器 它伴随着set和get方法一起声明出现
      * See the [Kotlin language documentation](http://kotlinlang.org/docs/reference/properties.html#getters-and-setters)
      * for more information.
      *
@@ -65,6 +68,7 @@ public interface KProperty<out R> : KCallable<R> {
 
 /**
  * Represents a property declared as a `var`.
+ * 表示一个属性被声明为了var
  */
 public interface KMutableProperty<R> : KProperty<R> {
     /** The setter of this mutable property, used to change the value of the property. */
