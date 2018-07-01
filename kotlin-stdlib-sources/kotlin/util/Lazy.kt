@@ -15,6 +15,7 @@ public interface Lazy<out T> {
      * Once the value was initialized it must not change during the rest of lifetime of this Lazy instance.
      */
     public val value: T
+
     /**
      * Returns `true` if a value for this Lazy instance has been already initialized, and `false` otherwise.
      * Once this function has returned `true` it stays `true` for the rest of lifetime of this Lazy instance.
@@ -87,19 +88,22 @@ public enum class LazyThreadSafetyMode {
 
     /**
      * Locks are used to ensure that only a single thread can initialize the [Lazy] instance.
+     * 锁用于确保只有一个线程可以初始化[Lazy]实例
      */
     SYNCHRONIZED,
 
     /**
      * Initializer function can be called several times on concurrent access to uninitialized [Lazy] instance value,
      * but only the first returned value will be used as the value of [Lazy] instance.
+     * 初始化函数可以在并发访问未初始化的[Lazy]实例值时多次调用，但只有第一个返回值将用作[Lazy]实例的值。
      */
     PUBLICATION,
 
     /**
      * No locks are used to synchronize an access to the [Lazy] instance value; if the instance is accessed from multiple threads, its behavior is undefined.
-     *
+     * 没有锁用于同步对[Lazy]实例值的访问;如果实例是从多个线程访问的，则其行为未定义。
      * This mode should not be used unless the [Lazy] instance is guaranteed never to be initialized from more than one thread.
+     * 除非确保[Lazy]实例永远不会从多个线程初始化，否则不应使用此模式。
      */
     NONE,
 }
@@ -110,7 +114,8 @@ private object UNINITIALIZED_VALUE
 @JvmVersion
 private class SynchronizedLazyImpl<out T>(initializer: () -> T, lock: Any? = null) : Lazy<T>, Serializable {
     private var initializer: (() -> T)? = initializer
-    @Volatile private var _value: Any? = UNINITIALIZED_VALUE
+    @Volatile
+    private var _value: Any? = UNINITIALIZED_VALUE
     // final field is required to enable safe publication of constructed instance
     private val lock = lock ?: this
 
@@ -126,8 +131,7 @@ private class SynchronizedLazyImpl<out T>(initializer: () -> T, lock: Any? = nul
                 val _v2 = _value
                 if (_v2 !== UNINITIALIZED_VALUE) {
                     @Suppress("UNCHECKED_CAST") (_v2 as T)
-                }
-                else {
+                } else {
                     val typedValue = initializer!!()
                     _value = typedValue
                     initializer = null
@@ -175,9 +179,12 @@ private class InitializedLazyImpl<out T>(override val value: T) : Lazy<T>, Seria
 
 @kotlin.jvm.JvmVersion
 private class SafePublicationLazyImpl<out T>(initializer: () -> T) : Lazy<T>, Serializable {
-    @Volatile private var initializer: (() -> T)? = initializer
-    @Volatile private var _value: Any? = UNINITIALIZED_VALUE
+    @Volatile
+    private var initializer: (() -> T)? = initializer
+    @Volatile
+    private var _value: Any? = UNINITIALIZED_VALUE
     // this final field is required to enable safe publication of constructed instance
+    // 这个最终字段是用来确保能够安全发布构建的实例
     private val final: Any = UNINITIALIZED_VALUE
 
     override val value: T

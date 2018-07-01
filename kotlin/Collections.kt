@@ -140,6 +140,7 @@ public interface List<out E> : Collection<E> {
     override val size: Int
 
     override fun isEmpty(): Boolean
+    //@UnsafeVariance 告诉编译器不去检查这个变量
     override fun contains(element: @UnsafeVariance E): Boolean
     override fun iterator(): Iterator<E>
 

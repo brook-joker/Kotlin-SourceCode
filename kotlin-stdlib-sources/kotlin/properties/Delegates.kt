@@ -17,6 +17,7 @@ public object Delegates {
 
     /**
      * Returns a property delegate for a read/write property that calls a specified callback function when changed.
+     * 返回更改时调用指定回调函数的读/写属性的属性委托。
      * @param initialValue the initial value of the property.
      * @param onChange the callback which is called after the change of the property is made. The value of the property
      *  has already been changed when this callback is invoked.
@@ -31,6 +32,7 @@ public object Delegates {
     /**
      * Returns a property delegate for a read/write property that calls a specified callback function when changed,
      * allowing the callback to veto the modification.
+     * 为更改时调用指定回调函数的读/写属性返回属性委托，允许回调否决修改。
      * @param initialValue the initial value of the property.
      * @param onChange the callback which is called before a change to the property value is attempted.
      *  The value of the property hasn't been changed yet, when this callback is invoked.
