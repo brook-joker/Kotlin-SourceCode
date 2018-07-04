@@ -4,7 +4,6 @@
     <list default="true" id="a54eabe4-27e6-4c0a-acc5-d4018059c1a1" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/kotlin-stdlib-sources/kotlin/properties/Delegates.kt" beforeDir="false" afterPath="$PROJECT_DIR$/kotlin-stdlib-sources/kotlin/properties/Delegates.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kotlin-stdlib-sources/kotlin/util/Lazy.kt" beforeDir="false" afterPath="$PROJECT_DIR$/kotlin-stdlib-sources/kotlin/util/Lazy.kt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -15,20 +14,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Collections.kt" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Collections.kt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/kotlin/Collections.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="287">
-              <caret line="142" column="43" selection-start-line="142" selection-start-column="43" selection-end-line="142" selection-end-column="43" />
+            <state relative-caret-position="27">
+              <caret line="319" column="43" selection-start-line="319" selection-start-column="43" selection-end-line="319" selection-end-column="43" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Lazy.kt" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Lazy.kt" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/kotlin-stdlib-sources/kotlin/util/Lazy.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5084">
-              <caret line="197" column="46" lean-forward="true" selection-start-line="197" selection-start-column="46" selection-end-line="197" selection-end-column="46" />
+            <state relative-caret-position="1787">
+              <caret line="153" lean-forward="true" selection-start-line="153" selection-end-line="153" />
             </state>
           </provider>
         </entry>
@@ -36,8 +35,8 @@
       <file leaf-file-name="Delegates.kt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/kotlin-stdlib-sources/kotlin/properties/Delegates.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="524">
-              <caret line="34" column="41" selection-start-line="34" selection-start-column="41" selection-end-line="34" selection-end-column="41" />
+            <state relative-caret-position="190">
+              <caret line="58" column="27" lean-forward="true" selection-start-line="58" selection-start-column="27" selection-end-line="58" selection-end-column="27" />
             </state>
           </provider>
         </entry>
@@ -66,6 +65,7 @@
       <find>List</find>
       <find>lIST</find>
       <find>UnsafeVariance</find>
+      <find>inline</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -75,16 +75,17 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/kotlin/collections/AbstractList.kt" />
-        <option value="$PROJECT_DIR$/kotlin/Collections.kt" />
         <option value="$PROJECT_DIR$/kotlin-stdlib-sources/kotlin/reflect/KProperty.kt" />
         <option value="$PROJECT_DIR$/kotlin-stdlib-sources/kotlin/util/Lazy.kt" />
+        <option value="$PROJECT_DIR$/kotlin/Collections.kt" />
         <option value="$PROJECT_DIR$/kotlin-stdlib-sources/kotlin/properties/Delegates.kt" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" fullScreen="true">
+  <component name="ProjectFrameBounds">
+    <option name="y" value="23" />
     <option name="width" value="1440" />
-    <option name="height" value="900" />
+    <option name="height" value="827" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -94,7 +95,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -102,80 +104,11 @@
               <item name="Kotlin-SourceCode" type="b2602c69:ProjectViewProjectNode" />
               <item name="Kotlin-SourceCode" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="Kotlin-SourceCode" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Kotlin-SourceCode" type="462c0819:PsiDirectoryNode" />
-              <item name="kotlin" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Kotlin-SourceCode" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Kotlin-SourceCode" type="462c0819:PsiDirectoryNode" />
-              <item name="kotlin" type="462c0819:PsiDirectoryNode" />
-              <item name="reflect" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Kotlin-SourceCode" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Kotlin-SourceCode" type="462c0819:PsiDirectoryNode" />
-              <item name="kotlin" type="462c0819:PsiDirectoryNode" />
-              <item name="reflect" type="462c0819:PsiDirectoryNode" />
-              <item name="jvm" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Kotlin-SourceCode" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Kotlin-SourceCode" type="462c0819:PsiDirectoryNode" />
-              <item name="kotlin" type="462c0819:PsiDirectoryNode" />
-              <item name="reflect" type="462c0819:PsiDirectoryNode" />
-              <item name="jvm" type="462c0819:PsiDirectoryNode" />
-              <item name="internal" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Kotlin-SourceCode" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Kotlin-SourceCode" type="462c0819:PsiDirectoryNode" />
-              <item name="kotlin" type="462c0819:PsiDirectoryNode" />
-              <item name="reflect" type="462c0819:PsiDirectoryNode" />
-              <item name="jvm" type="462c0819:PsiDirectoryNode" />
-              <item name="internal" type="462c0819:PsiDirectoryNode" />
-              <item name="impl" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Kotlin-SourceCode" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Kotlin-SourceCode" type="462c0819:PsiDirectoryNode" />
-              <item name="kotlin" type="462c0819:PsiDirectoryNode" />
-              <item name="reflect" type="462c0819:PsiDirectoryNode" />
-              <item name="jvm" type="462c0819:PsiDirectoryNode" />
-              <item name="internal" type="462c0819:PsiDirectoryNode" />
-              <item name="impl" type="462c0819:PsiDirectoryNode" />
-              <item name="load" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Kotlin-SourceCode" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Kotlin-SourceCode" type="462c0819:PsiDirectoryNode" />
-              <item name="kotlin" type="462c0819:PsiDirectoryNode" />
-              <item name="reflect" type="462c0819:PsiDirectoryNode" />
-              <item name="jvm" type="462c0819:PsiDirectoryNode" />
-              <item name="internal" type="462c0819:PsiDirectoryNode" />
-              <item name="impl" type="462c0819:PsiDirectoryNode" />
-              <item name="load" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Kotlin-SourceCode" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Kotlin-SourceCode" type="462c0819:PsiDirectoryNode" />
-              <item name="kotlin" type="462c0819:PsiDirectoryNode" />
-              <item name="reflect" type="462c0819:PsiDirectoryNode" />
-              <item name="jvm" type="462c0819:PsiDirectoryNode" />
-              <item name="internal" type="462c0819:PsiDirectoryNode" />
-              <item name="impl" type="462c0819:PsiDirectoryNode" />
-              <item name="load" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="lazy" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -265,7 +198,14 @@
       <option name="project" value="LOCAL" />
       <updated>1529925627026</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="委托属性、集合、延迟属性相关备注">
+      <created>1530458251644</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1530458251644</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TodoView">
@@ -278,7 +218,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <frame x="0" y="23" width="1440" height="827" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
@@ -289,11 +229,11 @@
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" order="3" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32848486" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.32880098" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32716763" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="0" weight="0.24964234" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.2532189" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.24964234" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -308,12 +248,39 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
     </layout>
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="集合和委托属性相关备注" />
-    <option name="LAST_COMMIT_MESSAGE" value="集合和委托属性相关备注" />
+    <MESSAGE value="委托属性、集合、延迟属性相关备注" />
+    <option name="LAST_COMMIT_MESSAGE" value="委托属性、集合、延迟属性相关备注" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -344,9 +311,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2484">
           <caret line="106" column="16" selection-start-line="106" selection-start-column="16" selection-end-line="106" selection-end-column="16" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -368,10 +332,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="324">
           <caret line="27" column="120" selection-start-line="27" selection-start-column="108" selection-end-line="27" selection-end-column="120" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="e#637#706#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -398,9 +358,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2484">
           <caret line="106" column="16" selection-start-line="106" selection-start-column="16" selection-end-line="106" selection-end-column="16" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -422,10 +379,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="324">
           <caret line="27" column="120" selection-start-line="27" selection-start-column="108" selection-end-line="27" selection-end-column="120" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="e#637#706#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -488,10 +441,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="324">
           <caret line="27" column="120" selection-start-line="27" selection-start-column="108" selection-end-line="27" selection-end-column="120" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="e#637#706#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -506,9 +455,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="459">
           <caret line="31" column="28" selection-start-line="31" selection-start-column="28" selection-end-line="31" selection-end-column="28" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -530,9 +476,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="243">
           <caret line="23" column="67" selection-start-line="23" selection-start-column="67" selection-end-line="23" selection-end-column="67" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -540,9 +483,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="513">
           <caret line="33" column="7" selection-start-line="33" selection-start-column="7" selection-end-line="33" selection-end-column="7" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -577,34 +517,31 @@
     <entry file="file://$PROJECT_DIR$/kotlin/util/Lazy.kt">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/kotlin-stdlib-sources/kotlin/properties/Delegates.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="524">
-          <caret line="34" column="41" selection-start-line="34" selection-start-column="41" selection-end-line="34" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/kotlin-stdlib-sources/kotlin/util/Lazy.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5084">
-          <caret line="197" column="46" lean-forward="true" selection-start-line="197" selection-start-column="46" selection-end-line="197" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/kotlin/collections/Collections.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="142">
           <caret line="59" lean-forward="true" selection-start-line="59" selection-end-line="59" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/kotlin-stdlib-sources/kotlin/properties/Delegates.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="58" column="27" lean-forward="true" selection-start-line="58" selection-start-column="27" selection-end-line="58" selection-end-column="27" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/kotlin/Collections.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="287">
-          <caret line="142" column="43" selection-start-line="142" selection-start-column="43" selection-end-line="142" selection-end-column="43" />
+        <state relative-caret-position="27">
+          <caret line="319" column="43" selection-start-line="319" selection-start-column="43" selection-end-line="319" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/kotlin-stdlib-sources/kotlin/util/Lazy.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1787">
+          <caret line="153" lean-forward="true" selection-start-line="153" selection-end-line="153" />
         </state>
       </provider>
     </entry>

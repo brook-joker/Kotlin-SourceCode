@@ -10,6 +10,8 @@ public object Delegates {
      * Returns a property delegate for a read/write property with a non-`null` value that is initialized not during
      * object construction time but at a later time. Trying to read the property before the initial value has been
      * assigned results in an exception.
+     * 返回具有非`null`值的读/写属性的属性委托，该值在对象构造时间内但不是在稍后时间初始化。
+     * 尝试在分配初始值之前读取属性会导致异常。
      *
      * @sample samples.properties.Delegates.notNullDelegate
      */
@@ -53,6 +55,9 @@ public object Delegates {
 private class NotNullVar<T: Any>() : ReadWriteProperty<Any?, T> {
     private var value: T? = null
 
+    /**
+     * 如果字段未初始化就调用就会抛出对应的异常
+     */
     public override fun getValue(thisRef: Any?, property: KProperty<*>): T {
         return value ?: throw IllegalStateException("Property ${property.name} should be initialized before get.")
     }
