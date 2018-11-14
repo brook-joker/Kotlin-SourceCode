@@ -40,6 +40,7 @@ public interface KClass<T : Any> : KDeclarationContainer, KAnnotatedElement, KCl
     /**
      * All functions and properties accessible in this class, including those declared in this class
      * and all of its superclasses. Does not include constructors.
+     * 此类中可访问的所有函数和属性，包括在此类及其所有超类中声明的函数和属性。 不包括构造函数。
      */
     override val members: Collection<KCallable<*>>
 
