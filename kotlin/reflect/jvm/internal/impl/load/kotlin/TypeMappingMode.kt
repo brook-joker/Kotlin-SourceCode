@@ -58,7 +58,7 @@ class TypeMappingMode private constructor(
         )
 
         /**
-         * kotlin.reflect.KClass mapped to java.lang.Class
+         * KClass mapped to java.lang.Class
          * Other types mapped as DEFAULT
          */
         @JvmField

@@ -14,8 +14,6 @@
  * limitations under the License.
  */
 
-package kotlin.reflect
-
 /**
  * Represents a class and provides introspection capabilities.
  * Instances of this class are obtainable by the `::class` syntax.

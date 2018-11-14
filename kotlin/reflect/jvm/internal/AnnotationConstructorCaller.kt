@@ -92,7 +92,7 @@ private fun throwIllegalArgumentType(index: Int, name: String, expectedJvmType: 
             @Suppress("CLASS_LITERAL_LHS_NOT_A_CLASS") Array<KClass<*>>::class // Workaround KT-13924
         else -> expectedJvmType.kotlin
     }
-    // For arrays, also render the type argument in the message, e.g. "... not of the required type kotlin.Array<kotlin.reflect.KClass>"
+    // For arrays, also render the type argument in the message, e.g. "... not of the required type kotlin.Array<KClass>"
     val typeString = when {
         kotlinClass.qualifiedName == Array<Any>::class.qualifiedName ->
             "${kotlinClass.qualifiedName}<${kotlinClass.java.componentType.kotlin.qualifiedName}>"

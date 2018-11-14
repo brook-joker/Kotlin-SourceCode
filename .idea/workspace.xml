@@ -3,9 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="a54eabe4-27e6-4c0a-acc5-d4018059c1a1" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kotlin-stdlib-sources/kotlin/util/Lazy.kt" beforeDir="false" afterPath="$PROJECT_DIR$/kotlin-stdlib-sources/kotlin/util/Lazy.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kotlin/reflect/KCallable.kt" beforeDir="false" afterPath="$PROJECT_DIR$/kotlin/reflect/KCallable.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/kotlin/reflect/KClass.kt" beforeDir="false" afterPath="$PROJECT_DIR$/kotlin/reflect/KClass.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kotlin/reflect/jvm/internal/AnnotationConstructorCaller.kt" beforeDir="false" afterPath="$PROJECT_DIR$/kotlin/reflect/jvm/internal/AnnotationConstructorCaller.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kotlin/reflect/jvm/internal/impl/load/kotlin/TypeMappingMode.kt" beforeDir="false" afterPath="$PROJECT_DIR$/kotlin/reflect/jvm/internal/impl/load/kotlin/TypeMappingMode.kt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -16,16 +16,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="KClass.kt" pinned="false" current-in-tab="true">
+      <file leaf-file-name="KClass.kt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/kotlin/reflect/KClass.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1215">
-              <caret line="45" selection-start-line="45" selection-end-line="45" />
+            <state relative-caret-position="172">
+              <caret line="50" column="83" selection-start-line="50" selection-start-column="83" selection-end-line="50" selection-end-column="83" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
             </state>
           </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="IrUtils.kt" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/compiler/ir/ir.tree/src/org/jetbrains/kotlin/ir/util/IrUtils.kt">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file leaf-file-name="KCallable.kt" pinned="false" current-in-tab="false">
@@ -108,12 +113,13 @@
         <option value="$PROJECT_DIR$/kotlin-stdlib-sources/kotlin/properties/Delegates.kt" />
         <option value="$PROJECT_DIR$/kotlin/util/Standard.kt" />
         <option value="$PROJECT_DIR$/kotlin-stdlib-sources/kotlin/util/Lazy.kt" />
-        <option value="$PROJECT_DIR$/kotlin/reflect/KClass.kt" />
         <option value="$PROJECT_DIR$/kotlin/reflect/KCallable.kt" />
+        <option value="$PROJECT_DIR$/kotlin/reflect/KClass.kt" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-21" />
     <option name="y" value="23" />
     <option name="width" value="1440" />
     <option name="height" value="821" />
@@ -127,6 +133,8 @@
     </navigator>
     <panes>
       <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -134,84 +142,10 @@
               <item name="Kotlin-SourceCode" type="b2602c69:ProjectViewProjectNode" />
               <item name="Kotlin-SourceCode" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="Kotlin-SourceCode" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Kotlin-SourceCode" type="462c0819:PsiDirectoryNode" />
-              <item name="kotlin-stdlib-jdk8-sources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Kotlin-SourceCode" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Kotlin-SourceCode" type="462c0819:PsiDirectoryNode" />
-              <item name="kotlin-stdlib-jdk8-sources" type="462c0819:PsiDirectoryNode" />
-              <item name="kotlin" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Kotlin-SourceCode" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Kotlin-SourceCode" type="462c0819:PsiDirectoryNode" />
-              <item name="kotlin-stdlib-jdk8-sources" type="462c0819:PsiDirectoryNode" />
-              <item name="kotlin" type="462c0819:PsiDirectoryNode" />
-              <item name="collections" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Kotlin-SourceCode" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Kotlin-SourceCode" type="462c0819:PsiDirectoryNode" />
-              <item name="kotlin-stdlib-jdk8-sources" type="462c0819:PsiDirectoryNode" />
-              <item name="kotlin" type="462c0819:PsiDirectoryNode" />
-              <item name="internal" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Kotlin-SourceCode" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Kotlin-SourceCode" type="462c0819:PsiDirectoryNode" />
-              <item name="kotlin-stdlib-jdk8-sources" type="462c0819:PsiDirectoryNode" />
-              <item name="kotlin" type="462c0819:PsiDirectoryNode" />
-              <item name="internal" type="462c0819:PsiDirectoryNode" />
-              <item name="jdk8" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Kotlin-SourceCode" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Kotlin-SourceCode" type="462c0819:PsiDirectoryNode" />
-              <item name="kotlin-stdlib-jdk8-sources" type="462c0819:PsiDirectoryNode" />
-              <item name="kotlin" type="462c0819:PsiDirectoryNode" />
-              <item name="streams" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Kotlin-SourceCode" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Kotlin-SourceCode" type="462c0819:PsiDirectoryNode" />
-              <item name="kotlin-stdlib-sources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Kotlin-SourceCode" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Kotlin-SourceCode" type="462c0819:PsiDirectoryNode" />
-              <item name="kotlin-stdlib-sources" type="462c0819:PsiDirectoryNode" />
-              <item name="kotlin" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Kotlin-SourceCode" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Kotlin-SourceCode" type="462c0819:PsiDirectoryNode" />
-              <item name="kotlin-stdlib-sources" type="462c0819:PsiDirectoryNode" />
-              <item name="kotlin" type="462c0819:PsiDirectoryNode" />
-              <item name="annotation" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Kotlin-SourceCode" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Kotlin-SourceCode" type="462c0819:PsiDirectoryNode" />
-              <item name="kotlin-stdlib-sources" type="462c0819:PsiDirectoryNode" />
-              <item name="kotlin" type="462c0819:PsiDirectoryNode" />
-              <item name="annotations" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Kotlin-SourceCode" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Kotlin-SourceCode" type="462c0819:PsiDirectoryNode" />
-              <item name="kotlin-stdlib-sources" type="462c0819:PsiDirectoryNode" />
-              <item name="kotlin" type="462c0819:PsiDirectoryNode" />
-              <item name="collections" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -308,7 +242,14 @@
       <option name="project" value="LOCAL" />
       <updated>1530458251644</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="委托属性、集合、延迟属性相关备注">
+      <created>1542188052635</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1542188052635</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TodoView">
@@ -321,7 +262,8 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="41" y="29" width="1440" height="822" extended-state="0" />
+    <frame x="-21" y="23" width="1440" height="821" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32880098" />
@@ -335,8 +277,8 @@
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.32716763" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49874687" weight="0.26466382" />
-      <window_info active="true" id="Structure" order="1" sideWeight="0.5012531" side_tool="true" visible="true" weight="0.26037195" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49874687" visible="true" weight="0.26466382" />
+      <window_info id="Structure" order="1" sideWeight="0.5012531" side_tool="true" weight="0.2639485" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="2" />
       <window_info anchor="right" id="Theme Preview" order="3" />
@@ -390,13 +332,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/kotlin/internal/contracts/Effect.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="30" column="33" lean-forward="true" selection-start-line="30" selection-start-column="33" selection-end-line="30" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/kotlin-reflect/kotlin/reflect/jvm/internal/impl/load/java/lazy/types/RawTypeImpl.class" />
     <entry file="file://$PROJECT_DIR$/kotlin/reflect/full/IllegalCallableAccessException.class" />
     <entry file="file://$PROJECT_DIR$/kotlin/reflect/full/NoSuchPropertyException.class" />
@@ -662,13 +597,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/kotlin/reflect/KClass.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1215">
-          <caret line="45" selection-start-line="45" selection-end-line="45" />
+        <state relative-caret-position="172">
+          <caret line="50" column="83" selection-start-line="50" selection-start-column="83" selection-end-line="50" selection-end-column="83" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/compiler/ir/ir.tree/src/org/jetbrains/kotlin/ir/util/IrUtils.kt">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
   </component>
   <component name="masterDetails">
