@@ -27,6 +27,9 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * 属性Getter实现类
+ */
 public class PropertyGetterDescriptorImpl extends PropertyAccessorDescriptorImpl implements PropertyGetterDescriptor {
     private KotlinType returnType;
 

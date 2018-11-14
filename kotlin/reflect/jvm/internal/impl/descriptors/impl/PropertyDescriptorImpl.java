@@ -40,12 +40,12 @@ public class PropertyDescriptorImpl extends VariableDescriptorWithInitializerImp
     private Collection<? extends PropertyDescriptor> overriddenProperties = null;
     private final PropertyDescriptor original;
     private final Kind kind;
-    private final boolean lateInit;
-    private final boolean isConst;
+    private final boolean lateInit;  //是否是延迟属性字段
+    private final boolean isConst;   //是否是Const字段
     private final boolean isExpect;
     private final boolean isActual;
     private final boolean isExternal;
-    private final boolean isDelegated;
+    private final boolean isDelegated; //是否被委托了
 
     private ReceiverParameterDescriptor dispatchReceiverParameter;
     private ReceiverParameterDescriptor extensionReceiverParameter;

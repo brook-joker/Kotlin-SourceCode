@@ -29,6 +29,9 @@ import java.util.List;
 
 import static kotlin.reflect.jvm.internal.impl.resolve.descriptorUtil.DescriptorUtilsKt.getBuiltIns;
 
+/**
+ * Setter属性实现类
+ */
 public class PropertySetterDescriptorImpl extends PropertyAccessorDescriptorImpl implements PropertySetterDescriptor {
     private ValueParameterDescriptor parameter;
 

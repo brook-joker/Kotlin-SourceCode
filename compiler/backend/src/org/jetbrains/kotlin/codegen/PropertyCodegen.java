@@ -116,22 +116,23 @@ public class PropertyCodegen {
     }
 
     private void gen(
-            @Nullable KtProperty declaration,
-            @NotNull PropertyDescriptor descriptor,
-            @Nullable KtPropertyAccessor getter,
-            @Nullable KtPropertyAccessor setter
+            @Nullable KtProperty declaration,       // 属性声明
+            @NotNull PropertyDescriptor descriptor, //描述，包括权限修饰符、注解、类型等。
+            @Nullable KtPropertyAccessor getter,    // 决定是否生成getter
+            @Nullable KtPropertyAccessor setter     //决定是否生成setter
     ) {
         assert kind == OwnerKind.PACKAGE || kind == OwnerKind.IMPLEMENTATION ||
                kind == OwnerKind.DEFAULT_IMPLS || kind == OwnerKind.ERASED_INLINE_CLASS
                 : "Generating property with a wrong kind (" + kind + "): " + descriptor;
-
+        //生成注解信息
         genBackingFieldAndAnnotations(declaration, descriptor);
-
+        //是否有默认的访问器
         boolean isDefaultGetterAndSetter = isDefaultAccessor(getter) && isDefaultAccessor(setter);
-
+        //根据注解和权限修饰符等信息判断是否自动生成Getter代码
         if (isAccessorNeeded(declaration, descriptor, getter, isDefaultGetterAndSetter)) {
             generateGetter(declaration, descriptor, getter);
         }
+        //根据注解和权限修饰符等信息判断是否自动生成Setter代码
         if (isAccessorNeeded(declaration, descriptor, setter, isDefaultGetterAndSetter)) {
             generateSetter(declaration, descriptor, setter);
         }
@@ -179,22 +180,28 @@ public class PropertyCodegen {
             @Nullable KtPropertyAccessor accessor,
             boolean isDefaultGetterAndSetter
     ) {
+        //如果是Const修饰或者使用@JvmFiled注解的，直接返回false
         if (isConstOrHasJvmFieldAnnotation(descriptor)) return false;
-
+        //是否有默认的访问器
         boolean isDefaultAccessor = isDefaultAccessor(accessor);
 
         // Don't generate accessors for interface properties with default accessors in DefaultImpls
+        // 不要在DefaultImpls中为具有默认访问器的接口属性生成访问器
         if (kind == OwnerKind.DEFAULT_IMPLS && isDefaultAccessor) return false;
 
         if (declaration == null) return true;
 
         // Delegated or extension properties can only be referenced via accessors
+        // 委托或扩展属性只能通过访问器引用
         if (declaration.hasDelegate() || declaration.getReceiverTypeReference() != null) return true;
 
         // Companion object properties should have accessors for non-private properties because these properties can be referenced
         // via getter/setter. But these accessors getter/setter are not required for private properties that have a default getter
         // and setter, in this case, the property can always be accessed through the accessor 'access<property name>$cp' and avoid some
         // useless indirection by using others accessors.
+        // 伴随对象属性应具有非私有属性的访问器，因为可以通过getter / setter引用这些属性。
+        // 但是具有默认getter和setter的私有属性不需要这些访问器getter / setter，
+        // 在这种情况下，可以通过访问者'access <property name> $ cp'始终访问该属性，并通过使用其他来避免一些无用的间接存取。
         if (isCompanionObject(descriptor.getContainingDeclaration())) {
             if (Visibilities.isPrivate(descriptor.getVisibility()) && isDefaultGetterAndSetter) {
                 return false;
@@ -203,9 +210,11 @@ public class PropertyCodegen {
         }
 
         // Non-const properties from multifile classes have accessors regardless of visibility
+        // 无论可见性如何，来自多文件类的非const属性都具有访问器
         if (isNonConstTopLevelPropertyInMultifileClass(declaration, descriptor)) return true;
 
         // Private class properties have accessors only in cases when those accessors are non-trivial
+        // 私有类属性仅在这些访问器非常重要的情况下才具有访问器
         if (Visibilities.isPrivate(descriptor.getVisibility())) {
             return !isDefaultAccessor;
         }
