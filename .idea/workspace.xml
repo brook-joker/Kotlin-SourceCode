@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a54eabe4-27e6-4c0a-acc5-d4018059c1a1" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/compiler/backend/src/org/jetbrains/kotlin/codegen/PropertyCodegen.java" beforeDir="false" afterPath="$PROJECT_DIR$/compiler/backend/src/org/jetbrains/kotlin/codegen/PropertyCodegen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kotlin/reflect/jvm/internal/impl/descriptors/impl/PropertyDescriptorImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/kotlin/reflect/jvm/internal/impl/descriptors/impl/PropertyDescriptorImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kotlin/reflect/jvm/internal/impl/descriptors/impl/PropertyGetterDescriptorImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/kotlin/reflect/jvm/internal/impl/descriptors/impl/PropertyGetterDescriptorImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kotlin/reflect/jvm/internal/impl/descriptors/impl/PropertySetterDescriptorImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/kotlin/reflect/jvm/internal/impl/descriptors/impl/PropertySetterDescriptorImpl.java" afterDir="false" />
-    </list>
+    <list default="true" id="a54eabe4-27e6-4c0a-acc5-d4018059c1a1" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,77 +10,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="KClass.kt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/kotlin/reflect/KClass.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="172">
-              <caret line="50" column="83" selection-start-line="50" selection-start-column="83" selection-end-line="50" selection-end-column="83" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="IrUtils.kt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/compiler/ir/ir.tree/src/org/jetbrains/kotlin/ir/util/IrUtils.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="351">
-              <caret line="33" lean-forward="true" selection-start-line="33" selection-end-line="33" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PropertyCodegen.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/compiler/backend/src/org/jetbrains/kotlin/codegen/PropertyCodegen.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="183" column="42" selection-start-line="183" selection-start-column="12" selection-end-line="183" selection-end-column="42" />
-              <folding>
-                <element signature="e#0#30384#0" expanded="true" />
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="JvmCodegenUtil.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/compiler/backend/src/org/jetbrains/kotlin/codegen/JvmCodegenUtil.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="286">
-              <caret line="157" column="68" selection-start-line="157" selection-start-column="47" selection-end-line="157" selection-end-column="68" />
-              <folding>
-                <element signature="e#0#18375#0" expanded="true" />
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FieldOwnerContext.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/compiler/backend/src/org/jetbrains/kotlin/codegen/context/FieldOwnerContext.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="262">
-              <caret line="61" column="50" lean-forward="true" selection-start-line="61" selection-start-column="50" selection-end-line="61" selection-end-column="50" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="jvmAnnotationUtil.kt" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/compiler/frontend.java/src/org/jetbrains/kotlin/resolve/jvm/annotations/jvmAnnotationUtil.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="48">
-              <caret line="5" column="52" lean-forward="true" selection-start-line="5" selection-start-column="52" selection-end-line="5" selection-end-column="52" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-                <element signature="e#218#704#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -144,9 +69,9 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="1724" />
-    <option name="y" value="-37" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="235" />
+    <option name="y" value="42" />
     <option name="width" value="1440" />
     <option name="height" value="821" />
   </component>
@@ -293,8 +218,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1724" y="-37" width="1440" height="821" extended-state="0" />
-    <editor active="true" />
+    <frame x="1440" y="-22" width="1440" height="821" extended-state="0" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32880098" />
@@ -305,10 +229,10 @@
       <window_info anchor="right" id="Maven Projects" order="3" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32596686" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32716763" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.32596686" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49874687" visible="true" weight="0.26466382" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49874687" weight="0.26466382" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info id="Structure" order="1" sideWeight="0.5012531" side_tool="true" weight="0.2639485" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -363,16 +287,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/kotlin/reflect/full/exceptions.kt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/kotlin-stdlib-sources/kotlin/internal/Annotations.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="552">
-          <caret line="120" column="19" lean-forward="true" selection-start-line="120" selection-start-column="19" selection-end-line="120" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/kotlin/Unit.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="81">
@@ -625,13 +539,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/compiler/ir/ir.tree/src/org/jetbrains/kotlin/ir/util/IrUtils.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="33" lean-forward="true" selection-start-line="33" selection-end-line="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/kotlin/reflect/jvm/internal/impl/descriptors/impl/PropertyDescriptorImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="143">
@@ -717,13 +624,38 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/core/descriptors.jvm/src/org/jetbrains/kotlin/load/java/JvmAbi.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2514">
+          <folding>
+            <element signature="e#0#5758#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/compiler/ir/ir.tree/src/org/jetbrains/kotlin/ir/util/IrUtils.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="351">
+          <caret line="33" lean-forward="true" selection-start-line="33" selection-end-line="33" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/compiler/frontend.java/src/org/jetbrains/kotlin/resolve/jvm/annotations/jvmAnnotationUtil.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="48">
-          <caret line="5" column="52" lean-forward="true" selection-start-line="5" selection-start-column="52" selection-end-line="5" selection-end-column="52" />
+        <state relative-caret-position="178">
+          <caret line="16" column="32" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="32" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="e#218#704#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/kotlin/reflect/jvm/internal/impl/name/FqName.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-169">
+          <folding>
+            <element signature="e#0#3033#0" expanded="true" />
           </folding>
         </state>
       </provider>
