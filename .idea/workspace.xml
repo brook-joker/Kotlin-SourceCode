@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a54eabe4-27e6-4c0a-acc5-d4018059c1a1" name="Default" comment="" />
+    <list default="true" id="a54eabe4-27e6-4c0a-acc5-d4018059c1a1" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/Kotlin-SourceCode.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Kotlin-SourceCode.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -10,7 +13,29 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf>
+      <file leaf-file-name="Effect.kt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/kotlin/internal/contracts/Effect.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-415">
+              <caret lean-forward="true" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ContractBuilder.kt" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/kotlin/internal/contracts/ContractBuilder.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="324">
+              <caret line="27" column="120" selection-start-line="27" selection-start-column="108" selection-end-line="27" selection-end-column="120" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -69,11 +94,11 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="235" />
-    <option name="y" value="42" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="1534" />
+    <option name="y" value="-16" />
     <option name="width" value="1440" />
-    <option name="height" value="821" />
+    <option name="height" value="822" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -84,14 +109,25 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="AndroidView" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="Kotlin-SourceCode" type="b2602c69:ProjectViewProjectNode" />
               <item name="Kotlin-SourceCode" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Kotlin-SourceCode" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Kotlin-SourceCode" type="462c0819:PsiDirectoryNode" />
+              <item name="kotlin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Kotlin-SourceCode" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Kotlin-SourceCode" type="462c0819:PsiDirectoryNode" />
+              <item name="kotlin" type="462c0819:PsiDirectoryNode" />
+              <item name="internal" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Kotlin-SourceCode" type="b2602c69:ProjectViewProjectNode" />
@@ -105,7 +141,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="SearchEverywhereHistoryKey" value="FqName&#9;FILE&#9;file:///Users/maqiang/Documents/GitHub/Kotlin-SourceCode/kotlin/reflect/jvm/internal/impl/name/FqName.java&#10;JvmAbi&#9;FILE&#9;file:///Users/maqiang/Documents/GitHub/Kotlin-SourceCode/core/descriptors.jvm/src/org/jetbrains/kotlin/load/java/JvmAbi.java&#10;JvmAnnotationUtilKt&#9;FILE&#9;file:///Users/maqiang/Documents/GitHub/Kotlin-SourceCode/compiler/frontend.java/src/org/jetbrains/kotlin/resolve/jvm/annotations/jvmAnnotationUtil.kt&#10;JvmCodegenUtil&#9;FILE&#9;file:///Users/maqiang/Documents/GitHub/Kotlin-SourceCode/compiler/backend/src/org/jetbrains/kotlin/codegen/JvmCodegenUtil.java&#10;Kind&#9;PSI&#9;JAVA://javax.tools.Diagnostic.Kind&#10;PropertySetterDescriptorImpl&#9;FILE&#9;file:///Users/maqiang/Documents/GitHub/Kotlin-SourceCode/kotlin/reflect/jvm/internal/impl/descriptors/impl/PropertySetterDescriptorImpl.java&#10;PropertyGetterDescriptorImpl&#9;FILE&#9;file:///Users/maqiang/Documents/GitHub/Kotlin-SourceCode/kotlin/reflect/jvm/internal/impl/descriptors/impl/PropertyGetterDescriptorImpl.java&#10;PropertyDescriptor&#9;FILE&#9;file:///Users/maqiang/Documents/GitHub/Kotlin-SourceCode/kotlin/reflect/jvm/internal/impl/descriptors/impl/PropertyDescriptorImpl.java&#10;PropertyCodegen&#9;FILE&#9;file:///Users/maqiang/Documents/GitHub/Kotlin-SourceCode/compiler/backend/src/org/jetbrains/kotlin/codegen/PropertyCodegen.java&#10;KAnnotatedElement&#9;FILE&#9;file:///Users/maqiang/Documents/GitHub/Kotlin-SourceCode/kotlin/reflect/KAnnotatedElement.kt&#10;KParameter&#9;FILE&#9;file:///Users/maqiang/Documents/GitHub/Kotlin-SourceCode/kotlin/reflect/KParameter.kt&#10;KCallable&#9;FILE&#9;file:///Users/maqiang/Documents/GitHub/Kotlin-SourceCode/kotlin/reflect/KCallable.kt&#10;KClass&#9;FILE&#9;file:///Users/maqiang/Documents/GitHub/Kotlin-SourceCode/kotlin/reflect/KClass.kt&#10;_collections&#9;FILE&#9;file:///Users/maqiang/Documents/GitHub/Kotlin-SourceCode/kotlin-stdlib-sources/generated/_Collections.kt&#10;collections&#9;FILE&#9;file:///Users/maqiang/Documents/GitHub/Kotlin-SourceCode/kotlin-stdlib-jdk8-sources/kotlin/collections/Collections.kt&#10;Coll&#9;FILE&#9;file:///Users/maqiang/Documents/GitHub/Kotlin-SourceCode/kotlin/Collections.kt&#10;List&#9;FILE&#9;file:///Users/maqiang/Documents/GitHub/Kotlin-SourceCode/kotlin/collections/AbstractList.kt&#10;Kpro&#9;FILE&#9;file:///Users/maqiang/Documents/GitHub/Kotlin-SourceCode/kotlin-stdlib-sources/kotlin/reflect/KProperty.kt&#10;Laz&#9;FILE&#9;file:///Users/maqiang/Documents/GitHub/Kotlin-SourceCode/kotlin-stdlib-sources/kotlin/util/Lazy.kt&#10;Del&#9;FILE&#9;file:///Users/maqiang/Documents/GitHub/Kotlin-SourceCode/kotlin-stdlib-sources/kotlin/properties/Delegates.kt&#10;Stack&#9;PSI&#9;JAVA://java.util.Stack&#10;Collec&#9;FILE&#9;file:///Users/maqiang/Documents/GitHub/Kotlin-SourceCode/kotlin/Collections.kt&#10;C&#9;FILE&#9;file:///Users/maqiang/Documents/GitHub/Kotlin-SourceCode/kotlin/collections/Collections.kt&#10;Colle&#9;FILE&#9;file:///Users/maqiang/Documents/GitHub/Kotlin-SourceCode/kotlin-stdlib-jdk8-sources/kotlin/collections/Collections.kt&#10;Map&#9;FILE&#9;file:///Users/maqiang/Documents/GitHub/Kotlin-SourceCode/kotlin/collections/Maps.kt&#10;Strings&#9;FILE&#9;file:///Users/maqiang/Documents/GitHub/Kotlin-SourceCode/kotlin/text/Strings.kt&#10;String&#9;FILE&#9;file:///Users/maqiang/Documents/GitHub/Kotlin-SourceCode/kotlin/String.kt&#10;Stand&#9;FILE&#9;file:///Users/maqiang/Documents/GitHub/Kotlin-SourceCode/kotlin/util/Standard.kt&#10;c&#9;FILE&#9;file:///Users/maqiang/Documents/GitHub/Kotlin-SourceCode/kotlin/Collections.kt&#10;Col&#9;FILE&#9;file:///Users/maqiang/Documents/GitHub/Kotlin-SourceCode/kotlin/collections/Collections.kt&#10;Delegates&#9;FILE&#9;file:///Users/maqiang/Documents/GitHub/Kotlin-SourceCode/kotlin-stdlib-sources/kotlin/properties/Delegates.kt&#10;Lazy&#9;FILE&#9;file:///Users/maqiang/Documents/GitHub/Kotlin-SourceCode/kotlin-stdlib-sources/kotlin/util/Lazy.kt&#10;lazy&#9;FILE&#9;file:///Users/maqiang/Documents/GitHub/Kotlin-SourceCode/kotlin/reflect/jvm/internal/impl/load/java/lazy&#10;laz&#9;PSI&#9;JAVA://java.time.Duration.Lazy&#10;KProperty&#9;FILE&#9;file:///Users/maqiang/Documents/GitHub/Kotlin-SourceCode/kotlin-stdlib-sources/kotlin/reflect/KProperty.kt&#10;ReadOnlyProperty&#9;PSI&#9;JAVA://javafx.beans.property.ReadOnlyProperty&#10;Ranges&#9;FILE&#9;file:///Users/maqiang/Documents/GitHub/Kotlin-SourceCode/kotlin/Ranges.kt&#10;Contrac&#9;FILE&#9;file:///Users/maqiang/Documents/GitHub/Kotlin-SourceCode/kotlin/internal/contracts/ContractBuilder.kt" />
+    <property name="SearchEverywhereHistoryKey" value="Effect&#9;FILE&#9;file:///Users/maqiang/Documents/GitHub/Kotlin-SourceCode/kotlin/internal/contracts/Effect.kt&#10;FqName&#9;FILE&#9;file:///Users/maqiang/Documents/GitHub/Kotlin-SourceCode/kotlin/reflect/jvm/internal/impl/name/FqName.java&#10;JvmAbi&#9;FILE&#9;file:///Users/maqiang/Documents/GitHub/Kotlin-SourceCode/core/descriptors.jvm/src/org/jetbrains/kotlin/load/java/JvmAbi.java&#10;JvmAnnotationUtilKt&#9;FILE&#9;file:///Users/maqiang/Documents/GitHub/Kotlin-SourceCode/compiler/frontend.java/src/org/jetbrains/kotlin/resolve/jvm/annotations/jvmAnnotationUtil.kt&#10;JvmCodegenUtil&#9;FILE&#9;file:///Users/maqiang/Documents/GitHub/Kotlin-SourceCode/compiler/backend/src/org/jetbrains/kotlin/codegen/JvmCodegenUtil.java&#10;Kind&#9;PSI&#9;JAVA://javax.tools.Diagnostic.Kind&#10;PropertySetterDescriptorImpl&#9;FILE&#9;file:///Users/maqiang/Documents/GitHub/Kotlin-SourceCode/kotlin/reflect/jvm/internal/impl/descriptors/impl/PropertySetterDescriptorImpl.java&#10;PropertyGetterDescriptorImpl&#9;FILE&#9;file:///Users/maqiang/Documents/GitHub/Kotlin-SourceCode/kotlin/reflect/jvm/internal/impl/descriptors/impl/PropertyGetterDescriptorImpl.java&#10;PropertyDescriptor&#9;FILE&#9;file:///Users/maqiang/Documents/GitHub/Kotlin-SourceCode/kotlin/reflect/jvm/internal/impl/descriptors/impl/PropertyDescriptorImpl.java&#10;PropertyCodegen&#9;FILE&#9;file:///Users/maqiang/Documents/GitHub/Kotlin-SourceCode/compiler/backend/src/org/jetbrains/kotlin/codegen/PropertyCodegen.java&#10;KAnnotatedElement&#9;FILE&#9;file:///Users/maqiang/Documents/GitHub/Kotlin-SourceCode/kotlin/reflect/KAnnotatedElement.kt&#10;KParameter&#9;FILE&#9;file:///Users/maqiang/Documents/GitHub/Kotlin-SourceCode/kotlin/reflect/KParameter.kt&#10;KCallable&#9;FILE&#9;file:///Users/maqiang/Documents/GitHub/Kotlin-SourceCode/kotlin/reflect/KCallable.kt&#10;KClass&#9;FILE&#9;file:///Users/maqiang/Documents/GitHub/Kotlin-SourceCode/kotlin/reflect/KClass.kt&#10;_collections&#9;FILE&#9;file:///Users/maqiang/Documents/GitHub/Kotlin-SourceCode/kotlin-stdlib-sources/generated/_Collections.kt&#10;collections&#9;FILE&#9;file:///Users/maqiang/Documents/GitHub/Kotlin-SourceCode/kotlin-stdlib-jdk8-sources/kotlin/collections/Collections.kt&#10;Coll&#9;FILE&#9;file:///Users/maqiang/Documents/GitHub/Kotlin-SourceCode/kotlin/Collections.kt&#10;List&#9;FILE&#9;file:///Users/maqiang/Documents/GitHub/Kotlin-SourceCode/kotlin/collections/AbstractList.kt&#10;Kpro&#9;FILE&#9;file:///Users/maqiang/Documents/GitHub/Kotlin-SourceCode/kotlin-stdlib-sources/kotlin/reflect/KProperty.kt&#10;Laz&#9;FILE&#9;file:///Users/maqiang/Documents/GitHub/Kotlin-SourceCode/kotlin-stdlib-sources/kotlin/util/Lazy.kt&#10;Del&#9;FILE&#9;file:///Users/maqiang/Documents/GitHub/Kotlin-SourceCode/kotlin-stdlib-sources/kotlin/properties/Delegates.kt&#10;Stack&#9;PSI&#9;JAVA://java.util.Stack&#10;Collec&#9;FILE&#9;file:///Users/maqiang/Documents/GitHub/Kotlin-SourceCode/kotlin/Collections.kt&#10;C&#9;FILE&#9;file:///Users/maqiang/Documents/GitHub/Kotlin-SourceCode/kotlin/collections/Collections.kt&#10;Colle&#9;FILE&#9;file:///Users/maqiang/Documents/GitHub/Kotlin-SourceCode/kotlin-stdlib-jdk8-sources/kotlin/collections/Collections.kt&#10;Map&#9;FILE&#9;file:///Users/maqiang/Documents/GitHub/Kotlin-SourceCode/kotlin/collections/Maps.kt&#10;Strings&#9;FILE&#9;file:///Users/maqiang/Documents/GitHub/Kotlin-SourceCode/kotlin/text/Strings.kt&#10;String&#9;FILE&#9;file:///Users/maqiang/Documents/GitHub/Kotlin-SourceCode/kotlin/String.kt&#10;Stand&#9;FILE&#9;file:///Users/maqiang/Documents/GitHub/Kotlin-SourceCode/kotlin/util/Standard.kt&#10;c&#9;FILE&#9;file:///Users/maqiang/Documents/GitHub/Kotlin-SourceCode/kotlin/Collections.kt&#10;Col&#9;FILE&#9;file:///Users/maqiang/Documents/GitHub/Kotlin-SourceCode/kotlin/collections/Collections.kt&#10;Delegates&#9;FILE&#9;file:///Users/maqiang/Documents/GitHub/Kotlin-SourceCode/kotlin-stdlib-sources/kotlin/properties/Delegates.kt&#10;Lazy&#9;FILE&#9;file:///Users/maqiang/Documents/GitHub/Kotlin-SourceCode/kotlin-stdlib-sources/kotlin/util/Lazy.kt&#10;lazy&#9;FILE&#9;file:///Users/maqiang/Documents/GitHub/Kotlin-SourceCode/kotlin/reflect/jvm/internal/impl/load/java/lazy&#10;laz&#9;PSI&#9;JAVA://java.time.Duration.Lazy&#10;KProperty&#9;FILE&#9;file:///Users/maqiang/Documents/GitHub/Kotlin-SourceCode/kotlin-stdlib-sources/kotlin/reflect/KProperty.kt&#10;ReadOnlyProperty&#9;PSI&#9;JAVA://javafx.beans.property.ReadOnlyProperty&#10;Ranges&#9;FILE&#9;file:///Users/maqiang/Documents/GitHub/Kotlin-SourceCode/kotlin/Ranges.kt&#10;Contrac&#9;FILE&#9;file:///Users/maqiang/Documents/GitHub/Kotlin-SourceCode/kotlin/internal/contracts/ContractBuilder.kt" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -218,33 +254,39 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1440" y="-22" width="1440" height="821" extended-state="0" />
+    <frame x="1534" y="-16" width="1440" height="822" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32880098" />
+      <window_info anchor="bottom" id="Android Profiler" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info id="Image Layers" order="2" />
+      <window_info id="Build Variants" side_tool="true" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" order="3" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32596686" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.32596686" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32485875" />
+      <window_info anchor="bottom" id="Logcat" />
+      <window_info id="Captures" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49874687" weight="0.26466382" />
-      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49874687" visible="true" weight="0.26466382" />
       <window_info id="Structure" order="1" sideWeight="0.5012531" side_tool="true" weight="0.2639485" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="2" />
       <window_info anchor="right" id="Theme Preview" order="3" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="right" id="Device File Explorer" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" />
     </layout>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -304,20 +346,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="162">
           <caret line="20" selection-start-line="20" selection-end-line="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/kotlin/internal/contracts/ContractBuilder.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="27" column="120" selection-start-line="27" selection-start-column="108" selection-end-line="27" selection-end-column="120" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/kotlin/internal/contracts/Effect.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="648">
-          <caret line="38" column="41" selection-start-line="38" selection-start-column="29" selection-end-line="38" selection-end-column="41" />
         </state>
       </provider>
     </entry>
@@ -506,9 +534,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="108">
           <caret line="18" column="3" selection-start-line="18" selection-start-column="3" selection-end-line="18" selection-end-column="3" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -516,9 +541,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="162">
           <caret line="20" column="54" selection-start-line="20" selection-start-column="54" selection-end-line="20" selection-end-column="54" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -533,9 +555,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="172">
           <caret line="50" column="83" selection-start-line="50" selection-start-column="83" selection-end-line="50" selection-end-column="83" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -543,11 +562,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="143">
           <caret line="53" column="44" lean-forward="true" selection-start-line="53" selection-start-column="44" selection-end-line="53" selection-end-column="44" />
-          <folding>
-            <element signature="e#0#19196#0" expanded="true" />
-            <element signature="e#6447#6448#0" expanded="true" />
-            <element signature="e#6480#6481#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -562,13 +576,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1054">
           <caret line="49" column="46" selection-start-line="49" selection-start-column="22" selection-end-line="49" selection-end-column="46" />
-          <folding>
-            <element signature="e#0#3879#0" expanded="true" />
-            <element signature="e#3548#3549#0" expanded="true" />
-            <element signature="e#3602#3603#0" expanded="true" />
-            <element signature="e#3850#3851#0" expanded="true" />
-            <element signature="e#3886#3887#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -583,15 +590,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="32" column="32" selection-start-line="32" selection-start-column="32" selection-end-line="32" selection-end-column="32" />
-          <folding>
-            <element signature="e#0#2919#0" expanded="true" />
-            <element signature="e#2510#2511#0" expanded="true" />
-            <element signature="e#2556#2557#0" expanded="true" />
-            <element signature="e#2611#2612#0" expanded="true" />
-            <element signature="e#2644#2645#0" expanded="true" />
-            <element signature="e#2892#2893#0" expanded="true" />
-            <element signature="e#2928#2929#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -599,10 +597,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
           <caret line="183" column="42" selection-start-line="183" selection-start-column="12" selection-end-line="183" selection-end-column="42" />
-          <folding>
-            <element signature="e#0#30384#0" expanded="true" />
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -610,10 +604,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="286">
           <caret line="157" column="68" selection-start-line="157" selection-start-column="47" selection-end-line="157" selection-end-column="68" />
-          <folding>
-            <element signature="e#0#18375#0" expanded="true" />
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -626,11 +616,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/core/descriptors.jvm/src/org/jetbrains/kotlin/load/java/JvmAbi.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2514">
-          <folding>
-            <element signature="e#0#5758#0" expanded="true" />
-          </folding>
-        </state>
+        <state relative-caret-position="-2514" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/compiler/ir/ir.tree/src/org/jetbrains/kotlin/ir/util/IrUtils.kt">
@@ -644,19 +630,28 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="178">
           <caret line="16" column="32" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="32" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="e#218#704#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/kotlin/reflect/jvm/internal/impl/name/FqName.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-169">
+        <state relative-caret-position="-169" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/kotlin/internal/contracts/Effect.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-415">
+          <caret lean-forward="true" />
           <folding>
-            <element signature="e#0#3033#0" expanded="true" />
+            <element signature="n#!!doc" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/kotlin/internal/contracts/ContractBuilder.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="27" column="120" selection-start-line="27" selection-start-column="108" selection-end-line="27" selection-end-column="120" />
         </state>
       </provider>
     </entry>
