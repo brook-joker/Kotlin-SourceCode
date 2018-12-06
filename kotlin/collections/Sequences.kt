@@ -7,6 +7,8 @@ package kotlin.sequences
  * Given an [iterator] function constructs a [Sequence] that returns values through the [Iterator]
  * provided by that function.
  * The values are evaluated lazily, and the sequence is potentially infinite.
+ * 给定[iterator]函数构造[Sequence]，通过[Iterator]返回值由该功能提供。
+ * 这些值是懒惰地评估的，并且序列可能是无限的。
  *
  * @sample samples.collections.Sequences.Building.sequenceFromIterator
  */
@@ -17,6 +19,7 @@ public inline fun <T> Sequence(crossinline iterator: () -> Iterator<T>): Sequenc
 
 /**
  * Creates a sequence that returns all elements from this iterator. The sequence is constrained to be iterated only once.
+ * 创建一个返回此迭代器中所有元素的序列。 序列被约束为仅迭代一次。
  *
  * @sample samples.collections.Sequences.Building.sequenceFromIterator
  */
@@ -92,7 +95,7 @@ public fun <T, R> Sequence<Pair<T, R>>.unzip(): Pair<List<T>, List<R>> {
  * the specified [predicate].
  *
  * @param sendWhen If `true`, values for which the predicate returns `true` are returned. Otherwise,
-* values for which the predicate returns `false` are returned
+ * values for which the predicate returns `false` are returned
  */
 internal class FilteringSequence<T>(private val sequence: Sequence<T>,
                                   private val sendWhen: Boolean = true,
@@ -101,6 +104,7 @@ internal class FilteringSequence<T>(private val sequence: Sequence<T>,
 
     override fun iterator(): Iterator<T> = object : Iterator<T> {
         val iterator = sequence.iterator()
+        //状态检查  -1 开始循环的标记位  0已经完成 1继续
         var nextState: Int = -1 // -1 for unknown, 0 for done, 1 for continue
         var nextItem: T? = null
 
@@ -113,6 +117,7 @@ internal class FilteringSequence<T>(private val sequence: Sequence<T>,
                     return
                 }
             }
+            //结束标记
             nextState = 0
         }
 

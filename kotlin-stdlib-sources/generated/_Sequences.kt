@@ -354,7 +354,9 @@ public fun <T> Sequence<T>.dropWhile(predicate: (T) -> Boolean): Sequence<T> {
 
 /**
  * Returns a sequence containing only elements matching the given [predicate].
+ * 返回仅包含通过筛选条件[predicate]元素的序列
  *
+ * 该操作是中间且无状态的。
  * The operation is _intermediate_ and _stateless_.
  */
 public fun <T> Sequence<T>.filter(predicate: (T) -> Boolean): Sequence<T> {
