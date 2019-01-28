@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a54eabe4-27e6-4c0a-acc5-d4018059c1a1" name="Default" comment="" />
+    <list default="true" id="a54eabe4-27e6-4c0a-acc5-d4018059c1a1" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/blog/TypeSystem.md" beforeDir="false" afterPath="$PROJECT_DIR$/blog/TypeSystem.md" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -10,7 +12,20 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf>
+      <file leaf-file-name="TypeSystem.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/blog/TypeSystem.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="268">
+                <caret line="65" column="1" selection-start-line="65" selection-start-column="1" selection-end-line="65" selection-end-column="1" />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -70,6 +85,8 @@
         <option value="$PROJECT_DIR$/kotlin/internal/contracts/ContractBuilder.kt" />
         <option value="$PROJECT_DIR$/kotlin-stdlib-sources/generated/_Sequences.kt" />
         <option value="$PROJECT_DIR$/kotlin/collections/Sequences.kt" />
+        <option value="$PROJECT_DIR$/blog/TypeSystem" />
+        <option value="$PROJECT_DIR$/blog/TypeSystem.md" />
       </list>
     </option>
   </component>
@@ -86,9 +103,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
-      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -96,10 +110,18 @@
               <item name="Kotlin-SourceCode" type="b2602c69:ProjectViewProjectNode" />
               <item name="Kotlin-SourceCode" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="Kotlin-SourceCode" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Kotlin-SourceCode" type="462c0819:PsiDirectoryNode" />
+              <item name="blog" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -225,6 +247,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="824" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="Android Profiler" order="7" />
@@ -247,8 +270,8 @@
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32596686" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.32440057" />
       <window_info id="Captures" order="1" weight="0.3297568" />
-      <window_info active="true" content_ui="combo" id="Project" order="8" sideWeight="0.49874687" visible="true" weight="0.26466382" />
-      <window_info id="Learn" weight="0.3297568" />
+      <window_info content_ui="combo" id="Project" order="8" sideWeight="0.49874687" weight="0.26466382" />
+      <window_info id="Learn" order="9" weight="0.3297568" />
       <window_info anchor="right" id="Theme Preview" order="3" />
       <window_info id="Favorites" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -300,13 +323,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-10.0.1.jdk/Contents/Home/lib/src.zip!/javafx.base/javafx/beans/property/ReadOnlyProperty.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="233">
-          <caret line="35" column="32" selection-start-line="35" selection-start-column="32" selection-end-line="35" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/kotlin-stdlib-sources/generated/_Ranges.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="19656">
@@ -628,6 +644,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="243">
           <caret line="113" column="50" lean-forward="true" selection-start-line="113" selection-start-column="50" selection-end-line="113" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/blog/TypeSystem.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="268">
+            <caret line="65" column="1" selection-start-line="65" selection-start-column="1" selection-end-line="65" selection-end-column="1" />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
