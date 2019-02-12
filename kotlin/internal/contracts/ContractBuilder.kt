@@ -11,7 +11,7 @@ import kotlin.internal.InlineOnly
 /**
  * This marker distinguishes the experimental contract declaration API and is used to opt-in for that feature
  * when declaring contracts of user functions.
- *
+ * 此标记区分实验合同声明API，用于选择加入该功能在声明用户功能合同时。
  * Any usage of a declaration annotated with `@ExperimentalContracts` must be accepted either by
  * annotating that usage with the [UseExperimental] annotation, e.g. `@UseExperimental(ExperimentalContracts::class)`,
  * or by using the compiler argument `-Xuse-experimental=kotlin.contracts.ExperimentalContracts`.
@@ -50,7 +50,7 @@ public interface ContractBuilder {
      * The possible values of [value] are limited to `true`, `false` or `null`.
      *
      * Use [SimpleEffect.implies] function to describe a conditional effect that happens in such case.
-     *
+     * 使用[SimpleEffect.Implies]函数来描述在这种情况下发生的条件效果。
      */
     // @sample samples.contracts.returnsTrueContract
     // @sample samples.contracts.returnsFalseContract

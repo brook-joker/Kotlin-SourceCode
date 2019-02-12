@@ -153,16 +153,35 @@ by lazy有三种线程模式(默认SYNCHRONIZED):
 
 
 
-**lateinit var和by lazy哪个更好用？**
+**lateinit var和by lazy优劣之处？**
+
+  lateinit var 在编译期忽略对属性未初始化的检查，后续何时何地初始化需要开发者自己决定，有一定的未初始化风险。
+
+  by lazy 在声明的同时也指定了延迟初始化时的行为，在属性被第一次被使用的时候能自动初始化。不存在属性未初始化风险，但需要注意可空性的问题：例如属性声明为非空，但是初始化行为返回了null。
+
+lateinit var不支持对可空属性的延迟初始化，by lazy支持对可空属性的延迟初始化.
+两者的使用场景不同，需要根据实际开发情况去选择使用.
 
 
+### 可空类型的扩展函数
+为可空类型定义扩展函数时一种更优雅的处理null值的方式，它允许接收者为null的（扩展函数）调用，并在该函数中处理null，而不是在确保变量不为null后再调用它的方法。
+
+只有扩展函数能做到这点，普通成员方法的调用是通过对象实例分发的，因此实例为null时（成员方法）永远不能被执行。
 
 
+在Kotlin标准库中定义的`isNullOfEmpty`就可以由String?类型的接收者调用.
+`isNullOfEmpty`的定义如下：
+```kotlin
+@kotlin.internal.InlineOnly
+public inline fun CharSequence?.isNullOrEmpty(): Boolean {
+    contract {
+        returns(false) implies (this@isNullOrEmpty != null)
+    }
 
+    return this == null || this.length == 0
+}
+```
 
-
-### 可空的扩展函数
-todo
 
 ### 平台类型
 
@@ -209,16 +228,261 @@ fun main(args: Array<String>) {
 ## 基本类型进阶
 
 ### 基本类型与数字的安全转换
-todo
+Kotlin在处理数字转换时要求必须是显式的转换，为了支持显式转换，kotlin中的除了布尔以为的基本数据类型都定义有转换函数: toByte(),toShort(),toChar()等等.
+
+错误示例：
+```kotlin
+val i = 1
+//无法通过编译 类型不匹配
+val j : Long = i
+```
+
+正确示例：
+```kotlin
+val i = 1
+val j : Long = i.toLong()
+```
+
+装箱类型比较示例：
+```kotlin
+val x = 1
+val y = 1
+val list = listOf(1L,2L,3L)
+//false
+x in list
+//true
+y.toLong() in list
+```
+
 
 ### 理解Any、Nothing、Unit
-todo
+#### Any
+
+Any是Kotlin所有非空类型的超类型，包含下面三个方法：`toString`、`equals`和`hashCode`.如果你需要的类型是一个可空类型，则必须使用`Any?`类型。
+在底层，Any类型对应java.lang.Object，Kotlin把Java方法参数和返回类型中用到的Object类型看作Any，当Kotlin函数函数中使用Any时，它会被编译成Java字节码中的Object。
+Any不能使用其它Object的方法（例如wait和notify），但是可以通过手动把值转换成java.lang.Object来调用这些方法。
+
+
+#### Nothing
+Nothing是⽤于标记永远不能达到的代码位置。在你⾃⼰的代码中，你可以使⽤ Nothing 来标
+记⼀个永远不会返回的函数：
+```kotlin
+fun fail(message: String): Nothing {
+    throw IllegalArgumentException(message)
+}
+```
+当你调⽤该函数时，编译器会知道执⾏不会超出该调⽤：
+```kotlin
+val s = person.name ?: fail("Name required")
+println(s) // 在此已知“s”已初始化
+```
+
+可能会遇到这个类型的另⼀种情况是类型推断。这个类型的可空变体 Nothing? 有⼀个可能的值是 null 。如果⽤ null 来初始化⼀个要推断类型的值，⽽⼜没有其他信息可⽤于确定更具体的类型时，编译器会推断出 Nothing? 类型：
+```kotlin
+val x = null // “x”具有类型 `Nothing?`
+val l = listOf(null) // “l”具有类型 `List<Nothing?>
+```
+
+
+#### Unit
+
+kotlin中的Unit对应于Java中的void,表示无意义的值，在用作函数返回值时可以省略掉.
+
 
 ## 集合与数组
 
 
 ### 集合简介
-todo
+与平时我们接触的编程语言不一样，Kotlin 区分可变集合和不可变集合（lists、sets、maps 等）。精确控制什么时候集合可编辑有助于消除 bug 和设计良好的 API。
+- kotlin.collections.Collection：只能对集合中的元素进行读取数据的操作。
+- kotlin.collections.MutableCollection：对集合中的数据可以执行正常的增删改查操作。
 
-### 集合的Sequence等等
-todo
+使用原则: 如果你的集合在初始化赋值完成以后不会再对其进行增删改，那么你可以使用不可变集合，否则你需要使用可变集合.
+```kotlin
+//只读list
+val list: List<Int> = arrayListOf(1, 2, 3)
+//可以对集合进行增删改查对应于Java的ArrayList
+val mutableList: MutableList<Int> = arrayListOf(1, 3, 3)
+```
+
+### 可空性和集合
+在前面我们讨论可空性，在集合中时常也需要持有null元素，那么我们就需要创建一个可空性的集合. 创建方式很简单在集合的通配符类型参数后面加上对应的可空性符号？
+```kotlin
+//可以包含null值
+val nulllist: List<Int?> = arrayListOf(1, 2, 3, null)
+//不可以包含null值
+val noNullList: List<Int> = arrayListOf(1, 3, 3)
+```
+
+### Kotlin集合与Java集合的关系
+Java中的集合接口在kotlin中分成了两种：只读的和可变的.
+在下图中可以看出，Java类都继承了kotlin的可变接口（MutableXX）
+![43439f3ac61a841b700e38c0f3db59c1.png](evernotecid://A22DE78C-58E6-459C-BE8D-A67C525FF247/appyinxiangcom/21926780/ENResource/p91)
+
+Kotlin中只读接口和可变接口的基本结构与java.util中的Java集合接口的结构是平行的。可变接口直接对应java.util包中的接口，而它们的只读版本缺少了所有产生改变的方法。
+
+
+当你有一个使用java.util.Collection做形参的Java方法，可以把任意Collection或MutableCollection的值作为实参传递给这个形参。Java并不会区分只读集合和可变集合，也就是说即使Kotlin中把集合声明成只读的，Java代码也可以修改这个集合，例如下面的代码，虽然我们将printInUppercase接收的list参数声明为只读的，但是仍然可以通过Java代码修改它。
+```kotlin
+//CollectionUtils.java
+public class CollectionUtils {
+    public static List<String> uppercaseAll(List<String> items) {
+        for (int i = 0; i < items.size(); i++) {
+            items.set(i, items.get(i).toUpperCase());
+        }
+        return items;
+    }
+}
+
+//collections.kt
+fun printInUppercase(list : List<String>) {
+    println(CollectionUtils.uppercaseAll(list));
+    println(list.first())
+}
+```
+
+### 平台类型的集合
+kotlin会把那些定义在Java代码中的类型看成`平台类型`，Kotlin没有任何关于平台类型的可空性信息，所以编译器允许Kotlin代码将其视为可空或者非空，同样，Java中声明的集合类型的变量也被视为平台类型。
+
+那么当我们实现或者重写某个有集合类型的Java方法时，我们需要考虑使用哪种kotlin类型来表示这个Java类型来消除以下疑问：
+- 集合是否null
+- 集合元素是否可能会持有null
+- 集合会不会被修改
+
+例如下面这个Java接口
+```java
+interface Parser<T> {
+    void parse(String data, List<T> result);
+}
+```
+考虑如下：
+- data可能为null
+- List<T>可能也会为null
+- List<T>集合会被频繁的修改
+
+Kotlin实现如下：
+```kotlin
+class DataParser : Parser<Data> {
+    override fun parse(data : String?, result : MutableList<Data>?)
+}
+```
+
+### 集合常见操作符
+#### filter 和 map
+filter函数用来从集合中移除你不想要的元素并放在一个新集合.
+```kotlin
+val list = listOf(1, 2, 3, 4)
+println(list.filter { it % 2 == 0 })
+```
+![1c108b32acd4f2309a0948aea92ab141.png](evernotecid://A22DE78C-58E6-459C-BE8D-A67C525FF247/appyinxiangcom/21926780/ENResource/p92)
+
+map函数对集合中的每一个元素应用给定的函数并把结果收集到一个新集合
+```kotlin
+val list = listOf(1, 2, 3, 4)
+println(list.map { it * it })
+```
+
+ ![2248d1fab01a342302e261873e8a983e.png](evernotecid://A22DE78C-58E6-459C-BE8D-A67C525FF247/appyinxiangcom/21926780/ENResource/p93)
+ 
+ 
+
+filter和map函数调用之后都是返回新集合，所以我们可以链式调用使用.
+```kotlin
+val list = listOf(1, 2, 3, 4)
+println(list.filter { it % 2 == 0 }.map { it * it })
+```
+![da3bdd6948a47a7398e624343433507b.png](evernotecid://A22DE78C-58E6-459C-BE8D-A67C525FF247/appyinxiangcom/21926780/ENResource/p94)
+
+ 
+#### 集合查询判断：all any count find
+以前我们为了判断集合中的元素是否满足某个特定的条件，不得不去手撕代码一遍一遍去做重复工作. 现在kotlin为我们提供了集合操作符来帮助我们提升工作效率.
+##### all
+判断集合中的元素是否都满足条件
+```kotlin
+val list = listOf(1, 2, 3, 4)
+//集合元素是否全都大于0 true  
+println(list.all { it > 0 })
+//集合元素是否全都小于0 false
+println(list.all { it < 0 })
+```
+##### any
+检查集合中是否至少存在一个匹配的元素
+```kotlin
+val list = listOf(1, 2, 3, 4)
+//集合元素是否存在大于3的元素 true
+println(list.any { it > 3 })
+//集合元素是否存在小于0的元素 false
+println(list.any { it < 0 })
+```
+##### count
+统计集合中有多少个元素满足了特定的条件
+```kotlin
+val list = listOf(1, 2, 3, 4)
+//集合元素大于1的元素有多少个 
+//结果3
+println(list.count { it > 1 })
+```
+>使用正确的函数完成工作: 'count' vs 'size'
+>count方法容易被遗忘，经常会使用过滤集合之后再取大小来实现：
+> ```kotlin
+>  println(list.filter { it > 1 }.size)
+> ```
+> 在这种情况下，一个中间集合会被创建并用来存储所有满足判断式的元素.
+> count方法只是跟踪匹配元素的数量，不关心元素本身，所以更高效.
+
+##### find
+寻找满足条件的元素并返回，如果有多个匹配的元素则返回第一个，没有匹配上返回null.
+```kotlin
+val list = listOf(1, 2, 3, 4)
+//集合元素大于1的元素有多少个
+//返回结果 2
+println(list.find { it > 1 })
+//返回结果 null
+println(list.find { it < 1 })
+```
+
+#### 列表转换成分组: groupBy
+如果你需要根据不同的条件将
+
+#### 处理嵌套集合中的元素: flatMap和flatten
+
+
+
+### 惰性集合操作:序列
+
+
+
+### 对象和基本类型的数组
+Kotlin中的数组是持有类型参数的类，其元素类型被指定为相应的类型参数，使用以下方式创建数组：
+- arrayOf : 包含的元素是指定为该函数的实参
+- arrayOfNulls :创建一个给定大小的数组，包含的是null元素，当然，它只能用来创建包含元素类型可空的数组
+- Array : 构造方法接收数组的大小和一个lambda表达式，调用lambda表达式来创建每一个数组元素，这就是使用非空元素类型来初始化数组，但不用显示地传递每个元素的方式
+
+```kotlin
+//如果包含的元素中有null 数组会自动转换成可空性数组 否则为非空性数组
+val array1 = arrayOf(1, 2, 3)
+//可以持有null值
+val array2 = arrayOfNulls<Int>(3)
+array2[0] = null
+array2[1] = 1
+array2[2] = 2
+// 1，2，3
+val array3 = Array<Int>(3) { i ->
+  i + 1
+}
+```
+
+Array<T>创建的数组是一个包含装箱类型的数组，那么如果我们需要创建一个基本类型的数组怎么做呢? Kotlin提供了一组基本数据类型数组的特殊类, 例如Int类型值的数组为IntArray.
+创建方式如下：
+```kotlin
+//第一种创建方式
+val array1 = IntArray(1)
+array1[0] = 1
+//第二种创建方式
+val array2 = intArrayOf(1,2,3)
+//第三种创建方式
+val array3 = IntArray(3) { i -> i + 1 }
+```
+
+
+

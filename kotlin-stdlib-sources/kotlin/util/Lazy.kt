@@ -94,7 +94,6 @@ public enum class LazyThreadSafetyMode {
 
     /**
      * Initializer function can be called several times on concurrent access to uninitialized [Lazy] instance value,
-     * Initializer function can be called several times on concurrent access to uninitialized [Lazy] instance value,
      * but only the first returned value will be used as the value of [Lazy] instance.
      * 初始化函数可以在并发访问未初始化的[Lazy]实例值时多次调用，但只有第一个返回值将用作[Lazy]实例的值。
      */

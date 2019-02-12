@@ -224,6 +224,7 @@ public fun String.padEnd(length: Int, padChar: Char = ' '): String
 
 /**
  * Returns `true` if this nullable char sequence is either `null` or empty.
+ * 如果此可空字符序列为“null”或为空，则返回“true”。
  */
 @kotlin.internal.InlineOnly
 public inline fun CharSequence?.isNullOrEmpty(): Boolean {

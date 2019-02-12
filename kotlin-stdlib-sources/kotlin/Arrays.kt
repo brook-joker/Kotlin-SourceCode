@@ -19,6 +19,10 @@
 package kotlin
 
 /**
+ * XXXArray对应的数组类型在编译之后会是基本类型的数组 而非包装类型的数组
+ */
+
+/**
  * An array of bytes. When targeting the JVM, instances of this class are represented as `byte[]`.
  * @constructor Creates a new array of the specified [size], with all elements initialized to zero.
  */
