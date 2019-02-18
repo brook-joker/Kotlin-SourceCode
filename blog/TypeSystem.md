@@ -339,7 +339,7 @@ val noNullList: List<Int> = arrayListOf(1, 3, 3)
 ### Kotlin集合与Java集合的关系
 Java中的集合接口在kotlin中分成了两种：只读的和可变的.
 在下图中可以看出，Java类都继承了kotlin的可变接口（MutableXX）
-![43439f3ac61a841b700e38c0f3db59c1.png](evernotecid://A22DE78C-58E6-459C-BE8D-A67C525FF247/appyinxiangcom/21926780/ENResource/p91)
+![collection](https://github.com/brook-joker/Kotlin-SourceCode/blob/master/blog/resource/collection.jpg?raw=true)
 
 Kotlin中只读接口和可变接口的基本结构与java.util中的Java集合接口的结构是平行的。可变接口直接对应java.util包中的接口，而它们的只读版本缺少了所有产生改变的方法。
 
