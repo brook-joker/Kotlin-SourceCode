@@ -19,7 +19,7 @@
 这一小节，我们主要讨论可空性是什么？Kotlin 怎么表示可空的值，如何利用 Kotlin 提供的工具（sugar）正确且优雅的处理 null.
 
 ### 可空类型
-Kotlin 与 Java 的类型系统相比，差异最大的地方就是对可空类型的支持. 在 Kotlin 中，所有类型默认都是 `非null`值. 如果你需要声明的是一个可空类型时，需要在对应的类型后面加 `?` 来表明此类型可以持有 `null`值. 如果一个变量是可空类型，那么对变量的方法的调用就是不安全（存在NPE的可能），编译器会在编译期间检查是否对可空变量进行了 `安全调用`来减少运行时异常的发生.
+Kotlin 与 Java 的类型系统相比，差异最大的地方就是对可空类型的支持. 在Kotlin中，所有类型默认都是 `非null`值. 如果你需要声明的是一个可空类型时，需要在对应的类型后面加 `?` 来表明此类型可以持有 `null`值. 如果一个变量是可空类型，那么对变量的方法的调用就是不安全（存在NPE的可能），编译器会在编译期间检查是否对可空变量进行了 `安全调用`来减少运行时异常的发生.
 下面来看我们在 Java 中声明一个方法:
 ```java
   void test(String str) {
@@ -130,9 +130,9 @@ println(str as? Int)
 ```
 
 
-### 非空断言!!
+### 非空断言 !!
 
-非空断言是kotlin提供的最简单的处理可空类型的工具,它使用!!表示，目的是将任何值转成非空值，一旦对null值做非空断言，则会抛出异常，例如以下示例：
+非空断言是 Kotlin 提供的最简单的处理可空类型的工具,它使用 `!!` 表示，目的是将任何值转成非空值，一旦对null值做非空断言，则会抛出 `KNPE（KotlinNullPointerException）`，例如以下示例：
 ```kotlin
 fun main(args: Array<String>) {
     val str: String? = null
@@ -143,34 +143,63 @@ fun main(args: Array<String>) {
 >	at com.kotlin.MainKt.main(Main.kt:26)
     
     
-**建议检查项目中所有的 !! 使用的地方，使用?.和?.let等安全操作去替换，否则线上可能会出现KNPE导致你的项目出现无法预知的事故**
+**建议检查项目中所有的 !! 使用的地方，使用其他安全操作去符替换，否则线上可能会出现KNPE**
 
-
-
-
-### let函数处理可空类型
-日常开发中，我们经常需要在执行某些代码块或者调用函数的时候，保证数据类型不为null，在Java中我们经常写的就是判断某个对象不为null，然后再接着调用.在kotlin中，我们可以使用`?.let`来代替对某个对象的判空操作.
-
+注意当在一行代码中多次使用 `!!` 操作符时，如果发生了`KNPE`，则无法定位到底是哪个值为null，最好避免在一行中使用多个 `!!` 操作符
 ```kotlin
-data class PersonBean(val name: String?, val age: Int)
+// 错误发生时无法定位到底是user还是address为null
+user!!.address!!.length
+// 建议多行
+user!!.address
+    !!.length
+```
+到目前为止，我们都是讨论如何`访问`可空类型的值。然而在日常开发中，我们经常遇到需要将可空值作为实参传递给一个接受非空值的函数的场景，这个时候虽然我们可以使用 `!!` ，但是我们肯定不想要KNPE. 为了解决这个问题，Kotlin 标准函数库提供了 `let`与安全调用运算符 `?.` 结合使用来解决这个问题.
 
-fun toString(dataBean: PersonBean) {
-    println(dataBean.name + "  " + dataBean.age)
+
+### let 函数
+`let` 函数是标准库里面的对对象的扩展函数，意味在Kotlin中所有的对象都具有let函数，
+当调用某对象的let函数，在函数块内可以通过 `it`  指代该对象，返回值为函数块的最后一行或指定return表达式。 
+```kotlin
+fun test() {
+   val str = "Kotlin"
+   //返回值为最后一行println的返回值Unit
+   val unitResult = str.let {
+      println(it)
+   }
+   //打印kotlin.Unit 后面小节介绍Unit
+   println(unitResult)
+
+   //指定返回值
+   val result = str.let {
+       println(it)
+       //不可以加return
+       123
+   }
+   //打印123
+   println(result)
+}
+```
+
+`let` 函数通常通过安全调用来调用它，从而达到将一个可空对象转变成非空对象. 在之前的小节中有一个接收非空参数的test函数，之前通过修改入参参数类型和内部安全调用来保证函数的健壮性。现在结合使用`?.`和`let`操作符保证调用`test`函数的入参为非空类型的参数也可以保证函数的正常调用。示例如下：
+```kotlin
+fun test(str: String) {
+    println(str.length)
 }
 
-
-fun main(args: Array<String>) {
-    val data: PersonBean? = PersonBean("kotlin", 2)
-    val nullData = null
-    data?.let { toString(it) }
-    nullData?.let { toString(it) }
- }
+fun invokeTest(str:String?){
+    str?.let { test(it)  }
+}
 ```
->输出结果
->kotlin 2
->
->在let的lambda表达式中it指向是调用let的对象（即data和nullData）.
-关于let的详解请关注lambda表达式章节
+
+![](https://github.com/brook-joker/Kotlin-SourceCode/blob/master/blog/resource/let.jpg?raw=true)
+
+`?.let` 只在表达式不为null时才会执行lambda
+
+需要注意的是当检查多个值是否为null时，虽然我们可以使用嵌套let调用处理，但是代码相当啰嗦丑陋且难以维护。为了易于维护，建议使用普通的if表达式一次性检查所有值.
+
+日常开发中，我们经常会遇到：属性最终是非空的，但不能使用非空值在构造方法中初始化.
+接下来，我们将学习在Kotlin中如何处理这种情况.
+
 
 ### 延迟属性初始化
 Koltin中属性在声明的同时也要求要被初始化，否则会报错。但是很多时候，我们知道变量在某些时候肯定会进行初始化，并且是`非null`值，我们不想在调用的地方再次进行判空操作，这个时候你就要kotlin提供的延迟属性初始化了.
