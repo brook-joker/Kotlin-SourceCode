@@ -19,7 +19,7 @@
 这一小节，我们主要讨论可空性是什么？Kotlin 怎么表示可空的值，如何利用 Kotlin 提供的工具（sugar）正确且优雅的处理 null.
 
 ### 可空类型
-Kotlin 与 Java 的类型系统相比，差异最大的地方就是对可空类型的支持. 在Kotlin中，所有类型默认都是 `非null`值. 如果你需要声明的是一个可空类型时，需要在对应的类型后面加 `?` 来表明此类型可以持有 `null`值. 如果一个变量是可空类型，那么对变量的方法的调用就是不安全（存在NPE的可能），编译器会在编译期间检查是否对可空变量进行了 `安全调用`来减少运行时异常的发生.
+Kotlin 与 Java 的类型系统相比，差异最大的地方就是对可空类型的支持. 在 Kotlin 中，所有类型默认都是 `非null`值. 如果你需要声明的是一个可空类型时，需要在对应的类型后面加 `?` 来表明此类型可以持有 `null`值. 如果一个变量是可空类型，那么对变量的方法的调用就是不安全（存在NPE的可能），编译器会在编译期间检查是否对可空变量进行了 `安全调用`来减少运行时异常的发生.
 下面来看我们在 Java 中声明一个方法:
 ```java
   void test(String str) {
@@ -62,37 +62,72 @@ fun test(str: String?) {
 最后我们来看第三种实现方式，它在入参后面加上了`?`来表示允许接收 `String类型`和 `null值`的参数，在方法内对字符串使用的地方进行了判空操作保证 `NPE` 不会发生，基本上已经保证函数的健壮性.
 
 
-但是呢！这样写好像和 Java 没什么区别嘛，还是在用 `if`检查处理可空. 其实我们可以使用kotlin提供的各种处理可空值的语法糖来处理，在学习语法糖之前我们先思考下为什么这么设计.
-
-
-
-#### 这种设计的好处和坏处是什么？
-
-先说好处，回想在 Java 中，我们经常为了忘记判空而导致NPE出现在各个犄角旮旯里面。Kotlin 为了解决这个问题，将类型区分成非空和可空，一旦我们声明了可空类型，编译器在编译阶段会检查代码中是否存在NPE的地方，通过编译失败的方式来强制我们去进行检查判空从而大大减少了NPE的发生. 但是，一旦我们将声明了非空类型时，如果尝试给非空类型赋值 `null`时，会出现类型转换异常. 尤其是我们在声明 XXBean 类的时候，建议尽可能的将所有类型声明为可空类型.
+但是呢！这样写好像和 Java 没什么区别嘛，还是在用 `if`检查处理可空. 别着急，接下来我们来学习使用kotlin提供的各种语法糖来优雅地处理可空值，
 
 
 
 ### 安全调用运算符 ”？.“
-#### 可空对象与属性的安全处理方式
-`?.`将null检查和方法调用合并成一个操作
-比如打印后端下发数据中的人的名字.
+
+`?.` 操作符是 Koltin 中最简单最有效处可空类型的操作符，它将null检查和一次方法调用合并成一个操作。
+
+我们使用 `?.` 操作符来改写一下前面的例子：
 ```kotlin
-data class DataBean(val id: Int, val person: PersonBean?)
-
-data class PersonBean(val name: String?, val age: Int)
-
-fun getName(dataBean: DataBean?): String? = dataBean?.person?.name
-
-fun main(args: Array<String>) {
-    val dataBean1 = DataBean(1,null);
-    val dataBean2 = DataBean(2, PersonBean("kotlin",2))
-    println(getName(dataBean1))
-    println(getName(dataBean2))
-}    
+fun test(str: String?) {
+  println(str?.length)
+}
 ```
->运行结果:
->null
->kotlin
+现在代码看起来简洁了很多，那么当我们输入 `null` 和 `String类型`参数时，该函数的调用结果如下：
+![](https://github.com/brook-joker/Kotlin-SourceCode/blob/master/blog/resource/nullSafe.jpg?raw=true)
+
+
+我们发现当传入值的是null时，表达式会返回一个null值，并且这次方法的调用不会发生.
+很多时候我们不期望返回值里面有null的存在，在上面的例子中如果str == null时，我们期望输出的长度是0而不是null, 为了达到这个目的，我们来改写一下代码：
+```kotlin
+fun test(str: String?) {
+    val length = if (str == null) 0 else str.length
+    println(length)
+}
+```
+在这里我们还是使用 `if` ，Kotlin 是决不允许这种`丑陋`的写法，我们来看看怎么优雅去掉这种代码.
+
+### Elvis 运算符 “?:”
+Elvis运算符有点像简化版的三目运算符，用来替换null的默认值。它经常和安全调用运算符 ?. 一起使用，用一个值去代替对null对象调用方法时返回的null.
+
+下面我们就用Evlis运算符来替换之前使用 `if` 表达式的写法
+```kotlin
+fun test(str: String?) {
+    println(str?.length ?: 0)
+}
+```
+我们可以看到，Elvis运算符接受两个运算符（str?.length 和 0），如果str?.length返回值不为null,则运算结果就是第一个运算符（str.length）。否则的话，运算结果就是第二个运算符（0）.
+
+![](https://github.com/brook-joker/Kotlin-SourceCode/blob/master/blog/resource/elvis.jpg?raw=true)
+
+我们需要注意Elvis运算符的优先级是比加减乘除还要低的，所以在使用的时需要考虑是否加上括号来提高优先级保证逻辑正常.
+```kotlin
+//先计算3 + c 然后判断加法的结果是否为null 
+val a = 3 + c ?: 0
+//先判断c是否为null 然后再进行加法运算
+val b = 3 + (c ?: 0)
+```
+
+在学习完Elvis运算符以后，接下来要介绍的是Kotlin中的`instanceof`检查的安全版本: 经常与Elvis运算符一起出现的 `安全转换运算符`
+
+
+
+### 安全转换运算符 " :as? "
+在前面的章节中，我们学习了用来转换类型的常规操作符: `as`。它和Java的强制类型转换一样，存在着类型转换异常的问题. 虽然我们可以在Java中使用`instanceof`和在Kotlin中使用`is`来确保想要转换的类型是我们想要的类型. 但是大道至简的Kotlin，为我们提供了更加优雅的解决方式`as?`
+
+`as`会尝试把值转换成指定的类型，如果类型不合适就抛出类型转换异常.
+
+以下代码是as和as?在异常转换时的不同表现：
+```kotlin
+val str = "kotlin"
+//抛出异常java.lang.ClassCastException: java.base/java.lang.String cannot be cast to java.base/java.lang.Integer
+println(str as Int)
+//输出结果null
+println(str as? Int)
+```
 
 
 ### 非空断言!!
@@ -108,37 +143,9 @@ fun main(args: Array<String>) {
 >	at com.kotlin.MainKt.main(Main.kt:26)
     
     
-**建议检查项目中所有的!!使用的地方，使用?.和?.let等安全操作去替换，否则线上可能会出现KNPE导致你的项目出现无法预知的事故**
-
-### 安全转换 " :as? "
-`as?`会尝试把值转换成指定的类型，如果类型不合适就返回null.
-`as`会尝试把值转换成指定的类型，如果类型不合适就抛出类型转换异常.
-```kotlin
-val str = "kotlin"
-//抛异常java.lang.ClassCastException: java.base/java.lang.String cannot be cast to java.base/java.lang.Integer
-println(str as Int)
-//输出结果null
-println(str as? Int)
-```
-
-### Elvis 运算符 “?:”
-Elvis运算符有点像简化版的三目运算符,下面是它的使用方式
-```kotlin
-val str = a ?: b
-```
-这行代码的意思是
-若a!=null，则str = a；
-若a==null，str=b。
->常用于处理某些场景我们不想让数据为null, 进行的一些空字符、空对象、空集合等替换null的保护措施.
+**建议检查项目中所有的 !! 使用的地方，使用?.和?.let等安全操作去替换，否则线上可能会出现KNPE导致你的项目出现无法预知的事故**
 
 
-需要注意的是Elvis运算符的优先级是比加减乘除还要低的，所以在使用的时需要考虑是否加上括号来提高优先级保证逻辑正常.
-```kotlin
-//先计算3 + c 然后判断加法的结果是否为null 
-val a = 3 + c ?: 0
-//先判断c是否为null 然后再进行加法运算
-val b = 3 + (c ?: 0)
-```
 
 
 ### let函数处理可空类型
