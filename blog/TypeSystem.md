@@ -202,22 +202,24 @@ fun invokeTest(str:String?){
 
 
 ### 延迟属性初始化
-Koltin中属性在声明的同时也要求要被初始化，否则会报错。但是很多时候，我们知道变量在某些时候肯定会进行初始化，并且是`非null`值，我们不想在调用的地方再次进行判空操作，这个时候你就要kotlin提供的延迟属性初始化了.
+在前面的章节中讲过，在Koltin中在声明非空属性时要求必须对其初始化。但是很多时候，我们知道变量在某些时候肯定会进行初始化，并且是`非null`值，我们不想在调用的地方再次进行null检查或者使用`!!`运算符，这个时候你就要kotlin提供的延迟属性初始化了.
 
-Kotlin中有两种延迟初始化的方式。一种是`lateinit var`，一种是`by lazy`。
+Kotlin标准库提供了两种延迟初始化的方式:  `lateinit var` 和 `by lazy`。
 
-**lateinit var**
+#### lateinit
+`lateinit` 的作用就是让编译期在检查时不要因为属性变量未被初始化而报错，使用方式在类属性前面使用lateinit关键字修饰即可, 不可以用来修饰val属性
 ```kotlin
-private lateinit var str: String
+lateinit var str: String
+//不能修饰Kotlin基本类型
+lateinit var age: Int
 ```
-  lateinit var只能用来修饰类属性，不能用来修饰局部变量，并且只能用来修饰对象，不能用来修饰基本类型(基本类型的属性在类加载后的准备阶段都会被初始化为默认值)。
-lateinit var的作用也比较简单，就是让编译期在检查时不要因为属性变量未被初始化而报错。
-lateinit vard不能用在可空类型的对象上，具体原因是源码内部会根据null值来判断是否进行了初始化.
-  Kotlin相信当开发者显式使用lateinit var 关键字的时候，他一定也会在后面某个合理的时机将该属性对象初始化的。
+  `lateinit` 常用来修饰 `类属性` 和 `非空对象` ，不能用来修饰 `局部变量` 、 `基本类型` (基本类型的属性在类加载后的准备阶段都会被初始化为默认值) 和 `可空对象` (具体原因是源码内部会根据null值来判断是否进行了初始化).
+  
+  当使用 `lateinit` 关键字的时候，后续若发生了未初始化就调用修饰的类属性或者对象时，Kotlin会抛出未初始化异常. 为了避免因为未初始化引起的异常问题，Kotlin 为每一个 `lateinit` 属性实例提供了一个判断是否已经初始化的属性值 `isInitialized`。因此，当遇到不确定当前变量是否已经初始化的情况时可以先判断后使用.
 
-**by lazy**
+#### by lazy
 
-by lazy本身是一种属性委托。属性委托的关键字是by，用法如下:
+`by lazy` 本身是一种属性委托。属性委托的关键字是by，用法如下:
 ```kotlin
 //用于属性延迟初始化
 val str: String by lazy { ”kotlin“ }
@@ -228,23 +230,17 @@ public fun foo() {
     println(bar)
 }
 ```
-by lazy要求属性声明为val，即不可变变量，在java中相当于被final修饰。
-这意味着该变量一旦初始化后就不允许再被修改值了(基本类型是值不能被修改，对象类型是引用不能被修改)。{}内的操作就是返回唯一一次初始化的结果。
-by lazy可以使用于类属性或者局部变量。
-by lazy有三种线程模式(默认SYNCHRONIZED):
-- LazyThreadSafetyMode.SYNCHRONIZED:
-- LazyThreadSafetyMode.PUBLICATION:
-- LazyThreadSafetyMode.NONE:
+by lazy要求属性声明为val，即不可变变量，在Java中相当于被final修饰。
+这意味着该变量一旦初始化后就不允许再被修改值了(基本类型是值不能被修改，对象类型是引用不能被修改)。 { } 内的操作就是返回唯一一次初始化的结果。
 
 
+**lateinit 和 by lazy 优劣之处？**
 
-**lateinit var和by lazy优劣之处？**
+  `lateinit` 在编译期忽略对属性未初始化的检查，后续何时何地初始化需要开发者自己决定，有一定的未初始化风险。
 
-  lateinit var 在编译期忽略对属性未初始化的检查，后续何时何地初始化需要开发者自己决定，有一定的未初始化风险。
+  `by lazy` 在声明的同时也指定了延迟初始化时的行为，在属性被第一次被使用的时候能自动初始化。不存在属性未初始化风险，但需要注意可空性的问题：例如属性声明为非空，但是初始化行为返回了null。
 
-  by lazy 在声明的同时也指定了延迟初始化时的行为，在属性被第一次被使用的时候能自动初始化。不存在属性未初始化风险，但需要注意可空性的问题：例如属性声明为非空，但是初始化行为返回了null。
-
-lateinit var不支持对可空属性的延迟初始化，by lazy支持对可空属性的延迟初始化.
+`lateinit`不支持对可空属性的延迟初始化，by lazy支持对可空属性的延迟初始化.
 两者的使用场景不同，需要根据实际开发情况去选择使用.
 
 
@@ -270,45 +266,52 @@ public inline fun CharSequence?.isNullOrEmpty(): Boolean {
 
 ### 平台类型
 
-对于Kotlin来说，Java中的任何引⽤都可能是null，这使得 Kotlin 对来⾃ Java 的对象要求严格空安全是不现实的。Java声明的类型在Kotlin中会被特别对待并称为平台类型。(其他语言也一样)
+在前面我们一直都在讨论在Kotlin的世界中如何与null和谐共处，但是Kotlin号称 `100% interoperable with Java` ,大家都知道在Java的类型系统是不支持可空性，那么在Java与Kotlin之间互操作时是如何处理null的呢？
 
-对这种类型的空检查会放宽，因此它们的安全保证与在 Java 中相同
-```kotlin
-val list = ArrayList<String>()  // ⾮空（构造函数结果）
-list.add("Item")
-val size = list.size  // ⾮空（原⽣ int）
-val item = list[0]     // 推断为平台类型（普通 Java 对象
-```
-当我们调⽤平台类型变量的⽅法时，Kotlin 不会在编译时报告可空性错误，但在运⾏时调⽤可能会失败，因为空指针异常或者 Kotlin ⽣成的阻⽌空值传 播的断⾔：
-```kotlin
-item.substring(1) // 允许，如果 item == null 可能会抛出异常
-```
-平台类型是不可标⽰的，意味着不能在语⾔中明确地写下它们。当把⼀个平台值赋值给⼀个 Kotlin 变量时，可以依赖类型推断（该变量会具有推断出的的 平台类型，如上例中 item 所具有的类型），或者我们可以选择我们期望的类型（可空或⾮空类型均可）：
-```kotlin
-val nullable: String? = item  // 允许，没有问题
-val notNull: String = item     // 允许，运⾏时可能失败
-```
-如果我们选择⾮空类型，编译器会在赋值时触发⼀个断⾔。这防⽌ Kotlin 的⾮空变量保存空值。当我们把平台值传递给期待⾮空值等的 Kotlin 函数时，也 会触发断⾔。总的来说，编译器尽⼒阻⽌空值通过程序向远传播（尽管鉴于泛型的原因，有时这不可能完全消除）
+   在Java的世界中，开发者可以使用注解`@Nullable` 和`@NotNull`来表明某个字段的可空性。当Kotlin调用这些被注解声明的字段时，会自动进行映射.
+   
+   ![nullType](https://github.com/brook-joker/Kotlin-SourceCode/blob/master/blog/resource/nullType.jpg?raw=true)
 
 
-返回平台类型表达式的公共函数/方法必须显式声明其Kotlin类型：
-```kotlin
-fun apiCall(): String = MyJavaApi.getProperty("name")
-```
-任何使用平台类型表达式初始化的属性（包级别或类级别）必须明确声明其Kotlin类型：
-```kotlin
-class Person {
-    val name: String = MyJavaApi.getProperty("name")
+  Kotlin可以识别多种注解: JRS-305标准的注解（javax.annotation）、Android注解（android.support.annotation）和JetBrains的注解（org.jetbrains.annotations）
+    
+  当Java代码中不存在注解时，Java中的类型会变成Kotlin中的平台类型。平台类型本质上就是无法得知该类型的可空性，既可以被当做可空类型处理，也可以作为非空类型处理。编译器会将平台类型会当做`非空类型来检查`，这意味着操作平台类型时需要格外小心，否则就会 `KNPE`.
+  
+  在Java和Kotlin混合开发的项目中，由于编译器不会主动提醒平台类型的出现，导致开发者经常把平台类型当做非空类型来使用.为了避免这种情况的发生，给大家分享一个小技巧，首先在Android Studio中按如图设置.
+  ![](https://github.com/brook-joker/Kotlin-SourceCode/blob/master/blog/resource/as.png?raw=true)
+  
+ **设置完成后，编辑器的提示中会显示推导的变量、函数和参数类型。**
+
+ 我们来模拟一下平台类型的场景:
+```java
+public class JavaApi {
+  public static String getString() {
+    return "Java";
+  }
 }
 ```
-
-使用平台类型表达式初始化的局部变量可能有或没有类型声明：
 ```kotlin
 fun main(args: Array<String>) {
-    val name = MyJavaApi.getProperty("name")
-    println(name)
+  val data = JavaApi.getString()
 }
 ```
+
+现在给大家截图看一下，当平台类型出现时，编译器是怎么提醒我们的！
+
+![](https://github.com/brook-joker/Kotlin-SourceCode/blob/master/blog/resource/platType.jpg?raw=true)
+
+在上图中，出现了一个 `String!` 的提醒，当在编译器中出现类型后面加上了 `!`时，该类型就是`平台类型`！ 后续对平台类型的使用需要根据Java类型的可空性来判断是否需要对平台类型进行安全调用了. 如果对Java中的类型不信任，开发者可以显示将变量声明为对应的可空类型来接收平台类型，这样的话后续编译器会帮助校验是否对Java中的类型进行了安全调用.
+
+显示声明可空类型接收平台类型的做法如下:
+```kotlin
+fun main(args: Array<String>) {
+  val data: String? = JavaApi.getString()
+  //后续对data的操作需要进行安全调用
+}
+```
+
+目前我们已经讨论了可空类型、非空类型和平台类型，学习了处理可空类型和平台类型的各种操作。接下来我们要去讨论Kotlin中的基本数据类型的相关知识，来帮助大家理解Kotlin是如何处理Java的包装类型.
+
 
 ## 基本类型进阶
 
